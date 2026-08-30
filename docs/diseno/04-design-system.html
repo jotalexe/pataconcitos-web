@@ -1,0 +1,404 @@
+<title>Design System Pataconcitos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,600&display=swap');
+
+  :root{
+    --bg:#fbf1de; --bg-card:#ffffff; --bg-card-alt:#fff7e8;
+    --ink:#2a2622; --ink-soft:#726b5c;
+    --petroleo:#33414a; --petroleo-deep:#212a30;
+    --naranja:#d9631f; --naranja-deep:#b64e14; --naranja-tint:#fbe3d3;
+    --dorado:#e8aa2b; --dorado-tint:#fbead0;
+    --verde:#7fa050; --verde-tint:#e7efdc;
+    --tint-ink-warm:#4a3305; --tint-ink-green:#4d6633;
+    --line:#e7d9b8; --line-soft:#f0e6cc;
+    --shadow-0:none;
+    --shadow-1: 0 1px 2px rgba(42,38,34,.07), 0 2px 6px -3px rgba(42,38,34,.10);
+    --shadow-2: 0 2px 6px rgba(42,38,34,.07), 0 10px 22px -12px rgba(42,38,34,.20);
+    --shadow-3: 0 6px 14px rgba(42,38,34,.10), 0 20px 40px -16px rgba(42,38,34,.28);
+    --r-chip:999px; --r-btn:999px; --r-card:22px; --r-container:14px; --r-input:12px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#211d18; --bg-card:#2b2620; --bg-card-alt:#332c24;
+      --ink:#f4ecd8; --ink-soft:#c6bda5; --line:#4a4033; --line-soft:#3a3227;
+      --naranja-tint:#4a2c1c; --dorado-tint:#463819; --verde-tint:#33402a;
+      --tint-ink-warm:#f6dfa8; --tint-ink-green:#c9dcb2;
+      --shadow-1: 0 1px 2px rgba(0,0,0,.35); --shadow-2: 0 10px 22px -12px rgba(0,0,0,.5); --shadow-3: 0 20px 40px -16px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#211d18; --bg-card:#2b2620; --bg-card-alt:#332c24;
+    --ink:#f4ecd8; --ink-soft:#c6bda5; --line:#4a4033; --line-soft:#3a3227;
+    --naranja-tint:#4a2c1c; --dorado-tint:#463819; --verde-tint:#33402a;
+      --tint-ink-warm:#f6dfa8; --tint-ink-green:#c9dcb2;
+    --shadow-1: 0 1px 2px rgba(0,0,0,.35); --shadow-2: 0 10px 22px -12px rgba(0,0,0,.5); --shadow-3: 0 20px 40px -16px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Nunito Sans',sans-serif; line-height:1.55;}
+  h1,h2,h3,h4{font-family:'Baloo 2',sans-serif; margin:0; text-wrap:balance;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+  img{max-width:100%;}
+  code{background:var(--bg-card-alt); padding:1px 6px; border-radius:6px; font-size:12.5px;}
+
+  .topbar{background:var(--petroleo); color:#fbf1de; padding:14px 0; font-size:12.5px; text-transform:uppercase; letter-spacing:.05em;}
+  .topbar .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  .chip-status{background:var(--dorado); color:#3a2c04; font-weight:800; padding:4px 12px; border-radius:999px; font-size:11.5px;}
+
+  header.intro{padding:48px 0 30px;}
+  .eyebrow{color:var(--naranja-deep); font-weight:800; font-size:13px; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;}
+  h1.page-title{font-size:clamp(28px,4vw,38px); font-weight:800;}
+  .intro p{max-width:68ch; color:var(--ink-soft); margin-top:12px; font-size:16px;}
+
+  nav.toc{display:flex; gap:8px; flex-wrap:wrap; margin-top:20px;}
+  nav.toc a{
+    font-size:12.5px; font-weight:700; color:var(--petroleo); background:var(--bg-card);
+    border:1px solid var(--line); padding:6px 12px; border-radius:999px; text-decoration:none;
+  }
+
+  section{padding:38px 0;}
+  section + section{border-top:1px solid var(--line-soft);}
+  h2.section-title{font-size:23px; font-weight:700; margin-bottom:4px;}
+  .section-lead{color:var(--ink-soft); font-size:14.5px; max-width:70ch; margin-bottom:20px;}
+  .rule-box{
+    background:var(--naranja-tint); border:1px solid var(--naranja); border-radius:var(--r-container);
+    padding:14px 18px; font-size:13.5px; color:var(--ink); margin-bottom:20px;
+  }
+  .rule-box b{color:var(--naranja-deep);}
+
+  /* palette */
+  .pal-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px;}
+  .pal-swatch{border-radius:var(--r-card); overflow:hidden; box-shadow:var(--shadow-1);}
+  .pal-color{height:70px;}
+  .pal-info{background:var(--bg-card); padding:10px 12px; font-size:12.5px;}
+  .pal-info b{display:block; font-family:'Baloo 2'; font-size:13.5px;}
+  .pal-info span{color:var(--ink-soft); font-variant-numeric:tabular-nums;}
+  .pal-info em{display:block; font-style:normal; font-size:11px; color:var(--ink-soft); margin-top:2px;}
+
+  /* type */
+  .type-panel{background:var(--bg-card); border-radius:var(--r-card); padding:22px 26px; box-shadow:var(--shadow-1);}
+  .type-row{display:flex; align-items:baseline; gap:16px; padding:9px 0; border-bottom:1px dashed var(--line);}
+  .type-row:last-child{border-bottom:none;}
+  .type-row .lbl{width:80px; flex:0 0 auto; font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em;}
+
+  /* buttons */
+  .comp-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px;}
+  .comp-card{background:var(--bg-card); border-radius:var(--r-card); box-shadow:var(--shadow-1); padding:20px;}
+  .comp-card h3{font-size:14.5px; margin-bottom:14px; font-family:'Baloo 2';}
+  .btn{display:inline-flex; align-items:center; gap:8px; font-family:'Nunito Sans'; font-weight:800; font-size:14.5px; padding:13px 22px; border-radius:var(--r-btn); border:none; cursor:pointer; text-decoration:none;}
+  .btn-primary{background:var(--naranja-deep); color:#fff8ea; box-shadow:0 8px 16px -8px rgba(217,99,31,.55);}
+  .btn-primary:hover{background:var(--naranja-deep);}
+  .btn-secondary{background:transparent; color:var(--petroleo); border:2px solid var(--petroleo);}
+  .btn-secondary:hover{background:var(--petroleo); color:#fff8ea;}
+  .btn-ghost{background:transparent; color:var(--petroleo); border:none; padding:13px 14px;}
+  .btn-ghost:hover{background:var(--bg-card-alt);}
+  .btn-disabled{background:var(--line-soft); color:var(--ink-soft); cursor:not-allowed;}
+  .state-row{display:flex; flex-direction:column; gap:10px; align-items:flex-start;}
+  .state-lbl{font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); font-weight:700; margin-top:6px;}
+  .btn-focus{outline:3px solid var(--dorado); outline-offset:2px;}
+
+  /* cards */
+  .card-product{background:var(--bg-card); border-radius:var(--r-card); box-shadow:var(--shadow-2); overflow:hidden;}
+  .card-product .ph{height:130px; background:repeating-linear-gradient(45deg,var(--line-soft),var(--line-soft) 8px,transparent 8px,transparent 16px); display:flex; align-items:center; justify-content:center; font-size:11.5px; color:var(--ink-soft); text-align:center; padding:10px;}
+  .card-product .body{padding:14px 16px;}
+  .card-product .name{font-family:'Baloo 2'; font-weight:700; font-size:16px;}
+  .card-product .desc{font-size:13px; color:var(--ink-soft); margin-top:3px;}
+  .card-product .price{font-size:12.5px; margin-top:10px; background:var(--bg-card-alt); display:inline-block; padding:4px 10px; border-radius:999px; color:var(--ink-soft); font-weight:700;}
+  .card-product .btn{margin-top:12px; padding:9px 16px; font-size:13px; width:100%; justify-content:center;}
+
+  .card-occasion{
+    background:var(--bg-card); border-radius:var(--r-card); box-shadow:var(--shadow-1); padding:18px;
+    display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px;
+  }
+  .card-occasion .circle{
+    width:56px; height:56px; border-radius:50%; background:var(--dorado-tint); display:flex; align-items:center; justify-content:center; font-size:26px;
+  }
+  .card-occasion b{font-family:'Baloo 2'; font-size:14px;}
+
+  .card-testi{background:var(--bg-card-alt); border:1.5px dashed var(--line); border-radius:var(--r-card); padding:24px; text-align:center;}
+  .card-testi .mark{font-size:28px; opacity:.35; font-family:'Baloo 2';}
+  .card-testi p{font-size:13.5px; color:var(--ink-soft); margin-top:6px;}
+
+  .card-faq{background:var(--bg-card); border-radius:var(--r-container); border:1px solid var(--line-soft);}
+  .card-faq summary{cursor:pointer; font-weight:700; font-size:14px; padding:13px 16px; list-style:none; display:flex; justify-content:space-between; align-items:center;}
+  .card-faq summary::-webkit-details-marker{display:none;}
+  .card-faq p{margin:0; padding:0 16px 14px; font-size:13.5px; color:var(--ink-soft);}
+
+  /* components: header/nav/cta/chips/badges/inputs */
+  .mock-header{display:flex; align-items:center; justify-content:space-between; background:var(--bg-card); border-radius:var(--r-container); padding:12px 16px; box-shadow:var(--shadow-1);}
+  .mock-header .brand{display:flex; align-items:center; gap:8px; font-family:'Baloo 2'; font-weight:700; font-size:15px;}
+  .mock-header .logo-dot{width:30px; height:30px; border-radius:50%; background:var(--petroleo); display:flex; align-items:center; justify-content:center; font-size:15px;}
+  .icon-nav{display:flex; gap:14px; color:var(--petroleo);}
+
+  .sticky-mock-wrap{position:relative; height:100px; background:var(--bg-card-alt); border-radius:var(--r-container); border:1px dashed var(--line);}
+  .sticky-mock{
+    position:absolute; bottom:12px; right:12px; background:var(--naranja-deep); color:#fff8ea; font-weight:800; font-size:13px;
+    padding:11px 18px; border-radius:var(--r-btn); box-shadow:var(--shadow-2); display:flex; align-items:center; gap:6px;
+  }
+
+  .chip{background:var(--bg-card-alt); border:1px solid var(--line); color:var(--ink-soft); font-size:12.5px; font-weight:700; padding:7px 14px; border-radius:var(--r-chip);}
+  .chip.active{background:var(--naranja-deep); color:#fff8ea; border-color:var(--naranja-deep);}
+  .badge{font-size:11px; font-weight:800; padding:4px 10px; border-radius:var(--r-chip); display:inline-block;}
+  .badge-new{background:var(--verde-tint); color:var(--tint-ink-green);}
+  .badge-pending{background:var(--bg-card-alt); color:var(--ink-soft); border:1px dashed var(--line);}
+  .badge-featured{background:var(--dorado-tint); color:#8a5c05;}
+
+  .input-mock{
+    width:100%; padding:12px 14px; border-radius:var(--r-input); border:1.5px solid var(--line);
+    background:var(--bg-card); font-family:'Nunito Sans'; font-size:14px; color:var(--ink);
+  }
+  .input-mock:focus{outline:none; border-color:var(--naranja); box-shadow:0 0 0 3px var(--naranja-tint);}
+  .field-lbl{font-size:12.5px; font-weight:700; margin-bottom:6px; display:block;}
+
+  /* spacing scale */
+  .space-row{display:flex; align-items:center; gap:14px; margin-bottom:10px;}
+  .space-box{background:var(--naranja); border-radius:4px; height:18px;}
+  .space-row .lbl2{width:70px; font-size:12.5px; color:var(--ink-soft); font-variant-numeric:tabular-nums;}
+
+  /* radius scale */
+  .radius-row{display:flex; gap:20px; flex-wrap:wrap; align-items:flex-end;}
+  .radius-item{text-align:center;}
+  .radius-box{width:70px; height:70px; background:var(--petroleo); margin-bottom:8px;}
+  .radius-item span{font-size:11.5px; color:var(--ink-soft);}
+
+  /* shadow scale */
+  .shadow-row{display:flex; gap:20px; flex-wrap:wrap;}
+  .shadow-item{width:120px; height:80px; background:var(--bg-card); border-radius:var(--r-container); display:flex; align-items:flex-end; justify-content:center; padding-bottom:8px; font-size:11px; color:var(--ink-soft);}
+
+  /* icon mix */
+  .icon-mix{display:flex; gap:24px; flex-wrap:wrap; align-items:center;}
+  .icon-mix .group{display:flex; flex-direction:column; align-items:center; gap:6px; font-size:11.5px; color:var(--ink-soft);}
+  .icon-mix .g-icon{width:40px; height:40px; border-radius:50%; background:var(--bg-card); box-shadow:var(--shadow-1); display:flex; align-items:center; justify-content:center; color:var(--petroleo);}
+
+  footer.page-footer{background:var(--petroleo); color:#f3e9d0; padding:28px 0; text-align:center; font-size:13.5px;}
+</style>
+
+<div class="topbar">
+  <div class="wrap"><span>Pataconcitos · Fase 5 — Paso 1: Design System</span><span class="chip-status">Para aprobación</span></div>
+</div>
+
+<header class="intro">
+  <div class="wrap">
+    <div class="eyebrow">Design System</div>
+    <h1 class="page-title">Las piezas base — antes de tocar una sola pantalla completa</h1>
+    <p>Este es el kit de construcción: color, tipografía, botones, tarjetas y componentes, con sus estados (default, hover, active, focus, disabled). Todo sale de la dirección creativa ya aprobada. Cuando apruebes esto, seguimos con Home completa.</p>
+    <nav class="toc">
+      <a href="#colores">Colores</a><a href="#tipografia">Tipografía</a><a href="#botones">Botones</a>
+      <a href="#cards">Cards</a><a href="#componentes">Componentes</a><a href="#espaciado">Espaciado</a>
+      <a href="#bordes">Bordes</a><a href="#sombras">Sombras</a><a href="#iconos">Iconografía</a><a href="#estados">Estados</a>
+    </nav>
+  </div>
+</header>
+
+<section id="colores">
+  <div class="wrap">
+    <h2 class="section-title">Colores</h2>
+    <p class="section-lead">La paleta aprobada, con su rol asignado.</p>
+    <div class="rule-box"><b>Regla de uso del naranja:</b> es el color de acción/antojo. El botón "Pedir por WhatsApp" debe seguir siendo el elemento naranja más evidente de toda la interfaz — el resto de usos (chips activos, badges, detalles) son secundarios y controlados, nunca compiten en protagonismo con el CTA de compra.</p>
+    <div class="pal-grid">
+      <div class="pal-swatch"><div class="pal-color" style="background:#33414a;"></div><div class="pal-info"><b>Petróleo</b><span>#33414A</span><em>Header, footer, texto sobre claro</em></div></div>
+      <div class="pal-swatch"><div class="pal-color" style="background:#d9631f;"></div><div class="pal-info"><b>Naranja antojo</b><span>#D9631F</span><em>CTA principal + acentos controlados</em></div></div>
+      <div class="pal-swatch"><div class="pal-color" style="background:#e8aa2b;"></div><div class="pal-info"><b>Dorado</b><span>#E8AA2B</span><em>Destacados, badges de producto</em></div></div>
+      <div class="pal-swatch"><div class="pal-color" style="background:#fbf1de;"></div><div class="pal-info"><b>Crema</b><span>#FBF1DE</span><em>Fondo general</em></div></div>
+      <div class="pal-swatch"><div class="pal-color" style="background:#7fa050;"></div><div class="pal-info"><b>Verde plátano</b><span>#7FA050</span><em>Disponibilidad, confirmaciones</em></div></div>
+      <div class="pal-swatch"><div class="pal-color" style="background:#2a2622;"></div><div class="pal-info"><b>Tinta</b><span>#2A2622</span><em>Texto principal</em></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="tipografia">
+  <div class="wrap">
+    <h2 class="section-title">Tipografía</h2>
+    <p class="section-lead">Baloo 2 para títulos, Nunito Sans para texto. Jerarquía reducida a pocos tamaños, optimizada para mobile.</p>
+    <div class="type-panel">
+      <div class="type-row"><span class="lbl">H1 · 34px</span><span style="font-family:'Baloo 2'; font-weight:800; font-size:34px;">¿Se te antojó?</span></div>
+      <div class="type-row"><span class="lbl">H2 · 26px</span><span style="font-family:'Baloo 2'; font-weight:700; font-size:26px;">Nuestros productos</span></div>
+      <div class="type-row"><span class="lbl">H3 · 19px</span><span style="font-family:'Baloo 2'; font-weight:700; font-size:19px;">Canasta para compartir</span></div>
+      <div class="type-row"><span class="lbl">Body · 16px</span><span style="font-family:'Nunito Sans'; font-size:16px;">Patacones recién preparados, listos para compartir.</span></div>
+      <div class="type-row"><span class="lbl">Small · 13px</span><span style="font-family:'Nunito Sans'; font-size:13px; color:var(--ink-soft);">Horario: 8:00am – 5:00pm</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="botones">
+  <div class="wrap">
+    <h2 class="section-title">Botones</h2>
+    <p class="section-lead">Forma de píldora en los cuatro estados de importancia. El primario es el único que usa naranja sólido.</p>
+    <div class="comp-grid">
+      <div class="comp-card">
+        <h3>Primario</h3>
+        <div class="state-row">
+          <a class="btn btn-primary" href="#">Pedir por WhatsApp</a>
+          <span class="state-lbl">Hover</span>
+          <a class="btn btn-primary" style="background:var(--naranja-deep);" href="#">Pedir por WhatsApp</a>
+          <span class="state-lbl">Focus (teclado)</span>
+          <a class="btn btn-primary btn-focus" href="#">Pedir por WhatsApp</a>
+        </div>
+      </div>
+      <div class="comp-card">
+        <h3>Secundario</h3>
+        <div class="state-row">
+          <a class="btn btn-secondary" href="#">Ver menú</a>
+          <span class="state-lbl">Hover</span>
+          <a class="btn" style="background:var(--petroleo); color:#fff8ea; border:2px solid var(--petroleo);" href="#">Ver menú</a>
+        </div>
+      </div>
+      <div class="comp-card">
+        <h3>Ghost</h3>
+        <div class="state-row">
+          <a class="btn btn-ghost" href="#">Cancelar</a>
+          <span class="state-lbl">Hover</span>
+          <a class="btn btn-ghost" style="background:var(--bg-card-alt);" href="#">Cancelar</a>
+        </div>
+      </div>
+      <div class="comp-card">
+        <h3>Disabled</h3>
+        <div class="state-row">
+          <button class="btn btn-disabled" disabled>No disponible</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cards">
+  <div class="wrap">
+    <h2 class="section-title">Cards</h2>
+    <p class="section-lead">Radio de esquina moderado (no píldora) — el producto y su foto son el protagonista, no el marco de la tarjeta.</p>
+    <div class="comp-grid">
+      <div class="card-product">
+        <div class="ph">Foto real del producto</div>
+        <div class="body">
+          <div class="name">🧪 Nombre del producto</div>
+          <div class="desc">🧪 Descripción corta</div>
+          <div class="price">Precio: pendiente de definir</div>
+          <a class="btn btn-primary" href="#">Pedir por WhatsApp</a>
+        </div>
+      </div>
+      <div class="card-occasion">
+        <div class="circle">🎉</div>
+        <b>Parranda</b>
+        <span style="font-size:12px; color:var(--ink-soft);">Canastas grandes para compartir</span>
+      </div>
+      <div class="card-testi">
+        <div class="mark">"</div>
+        <p><strong>Próximamente</strong><br>Aquí vas a leer experiencias reales de clientes.</p>
+      </div>
+      <div class="card-faq">
+        <details open><summary>¿Cómo hago un pedido? <span>−</span></summary><p>Escribiendo por WhatsApp — el botón principal te lleva directo allá.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="componentes">
+  <div class="wrap">
+    <h2 class="section-title">Componentes</h2>
+    <p class="section-lead">Header, CTA sticky, chips, badges e inputs — las piezas de soporte de toda la interfaz.</p>
+    <div class="comp-grid">
+      <div class="comp-card">
+        <h3>Header / navegación</h3>
+        <div class="mock-header">
+          <div class="brand"><span class="logo-dot">🍌</span> Pataconcitos</div>
+          <div class="icon-nav">
+            <span title="Menú">☰</span>
+          </div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <h3>CTA sticky (mobile)</h3>
+        <div class="sticky-mock-wrap"><div class="sticky-mock">💬 Pedir por WhatsApp</div></div>
+      </div>
+      <div class="comp-card">
+        <h3>Chips</h3>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="chip active">Antojo</span><span class="chip">Pareja</span><span class="chip">Familia</span>
+        </div>
+      </div>
+      <div class="comp-card">
+        <h3>Badges</h3>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="badge badge-new">Nuevo</span>
+          <span class="badge badge-featured">Destacado</span>
+          <span class="badge badge-pending">Precio pendiente</span>
+        </div>
+      </div>
+      <div class="comp-card" style="grid-column:span 2;">
+        <h3>Input (formulario de contacto)</h3>
+        <label class="field-lbl">Tu WhatsApp</label>
+        <input class="input-mock" placeholder="300 000 0000">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="espaciado">
+  <div class="wrap">
+    <h2 class="section-title">Espaciado</h2>
+    <p class="section-lead">Escala base de 8px — todo margen y padding del sitio sale de esta lista.</p>
+    <div>
+      <div class="space-row"><span class="lbl2">8px</span><div class="space-box" style="width:8px;"></div></div>
+      <div class="space-row"><span class="lbl2">16px</span><div class="space-box" style="width:16px;"></div></div>
+      <div class="space-row"><span class="lbl2">24px</span><div class="space-box" style="width:24px;"></div></div>
+      <div class="space-row"><span class="lbl2">32px</span><div class="space-box" style="width:32px;"></div></div>
+      <div class="space-row"><span class="lbl2">48px</span><div class="space-box" style="width:48px;"></div></div>
+      <div class="space-row"><span class="lbl2">64px</span><div class="space-box" style="width:64px;"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="bordes">
+  <div class="wrap">
+    <h2 class="section-title">Bordes — jerarquía de redondeado</h2>
+    <p class="section-lead">No todo es píldora: cada nivel de forma comunica qué tipo de elemento es.</p>
+    <div class="radius-row">
+      <div class="radius-item"><div class="radius-box" style="border-radius:999px;"></div><span>Píldora<br>botones/chips</span></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:22px;"></div><span>22px<br>tarjetas</span></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:14px;"></div><span>14px<br>contenedores</span></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:50%;"></div><span>Círculo<br>elementos destacados</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="sombras">
+  <div class="wrap">
+    <h2 class="section-title">Sombras — niveles de elevación</h2>
+    <p class="section-lead">Tinte cálido, nunca gris/negro puro. A más elevación, más "flota" el elemento sobre la página.</p>
+    <div class="shadow-row">
+      <div class="shadow-item" style="box-shadow:var(--shadow-1);">Nivel 1 — reposo</div>
+      <div class="shadow-item" style="box-shadow:var(--shadow-2);">Nivel 2 — tarjetas</div>
+      <div class="shadow-item" style="box-shadow:var(--shadow-3);">Nivel 3 — CTA sticky</div>
+    </div>
+  </div>
+</section>
+
+<section id="iconos">
+  <div class="wrap">
+    <h2 class="section-title">Iconografía — mezcla equilibrada</h2>
+    <p class="section-lead">Emoji para ocasiones (cercanía, lenguaje de redes) + iconos simples para navegación/acciones funcionales (apariencia profesional).</p>
+    <div class="icon-mix">
+      <div class="group"><div class="g-icon">🥑</div>Antojo</div>
+      <div class="group"><div class="g-icon">❤️</div>Pareja</div>
+      <div class="group"><div class="g-icon">👨‍👩‍👧‍👦</div>Familia</div>
+      <div class="group"><div class="g-icon">🎉</div>Parranda</div>
+      <div class="group" style="margin-left:20px;"><div class="g-icon">☰</div>Menú (funcional)</div>
+      <div class="group"><div class="g-icon">📍</div>Cobertura (funcional)</div>
+      <div class="group"><div class="g-icon">🕒</div>Horario (funcional)</div>
+    </div>
+  </div>
+</section>
+
+<section id="estados">
+  <div class="wrap">
+    <h2 class="section-title">Estados — accesibilidad</h2>
+    <p class="section-lead">Ningún estado depende solo del color: siempre hay cambio de forma, borde o ícono que lo acompaña.</p>
+    <div class="comp-grid">
+      <div class="comp-card"><h3>Default</h3><span class="chip">Antojo</span></div>
+      <div class="comp-card"><h3>Active</h3><span class="chip active">Antojo</span></div>
+      <div class="comp-card"><h3>Focus (teclado)</h3><span class="chip btn-focus" style="display:inline-block;">Antojo</span></div>
+      <div class="comp-card"><h3>Disabled</h3><span class="chip" style="opacity:.5;">Agotado</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="page-footer">Pataconcitos · Design System v1 · Pendiente de tu aprobación antes de diseñar la Home completa</footer>

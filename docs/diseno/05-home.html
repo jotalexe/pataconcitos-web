@@ -1,0 +1,362 @@
+<title>Home Pataconcitos — Alta Fidelidad</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,600&display=swap');
+
+  :root{
+    --bg:#fbf1de; --bg-card:#ffffff; --bg-card-alt:#fff7e8;
+    --ink:#2a2622; --ink-soft:#726b5c;
+    --petroleo:#33414a; --petroleo-deep:#212a30;
+    --naranja:#d9631f; --naranja-deep:#b64e14; --naranja-tint:#fbe3d3;
+    --dorado:#e8aa2b; --dorado-tint:#fbead0;
+    --verde:#7fa050; --verde-tint:#e7efdc;
+    --tint-ink-warm:#4a3305; --tint-ink-green:#4d6633;
+    --line:#e7d9b8; --line-soft:#f0e6cc;
+    --shadow-1: 0 1px 2px rgba(42,38,34,.07), 0 2px 6px -3px rgba(42,38,34,.10);
+    --shadow-2: 0 2px 6px rgba(42,38,34,.07), 0 10px 22px -12px rgba(42,38,34,.20);
+    --shadow-3: 0 6px 14px rgba(42,38,34,.10), 0 20px 40px -16px rgba(42,38,34,.28);
+    --r-btn:999px; --r-card:22px; --r-container:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#211d18; --bg-card:#2b2620; --bg-card-alt:#332c24;
+      --ink:#f4ecd8; --ink-soft:#c6bda5; --line:#4a4033; --line-soft:#3a3227;
+      --naranja-tint:#4a2c1c; --dorado-tint:#463819; --verde-tint:#33402a;
+      --tint-ink-warm:#f6dfa8; --tint-ink-green:#c9dcb2;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#211d18; --bg-card:#2b2620; --bg-card-alt:#332c24;
+    --ink:#f4ecd8; --ink-soft:#c6bda5; --line:#4a4033; --line-soft:#3a3227;
+    --naranja-tint:#4a2c1c; --dorado-tint:#463819; --verde-tint:#33402a;
+      --tint-ink-warm:#f6dfa8; --tint-ink-green:#c9dcb2;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0; background:var(--bg);}
+  body{color:var(--ink); font-family:'Nunito Sans',sans-serif; line-height:1.5;}
+  h1,h2,h3,h4{font-family:'Baloo 2',sans-serif; margin:0; text-wrap:balance;}
+  img{max-width:100%; display:block;}
+  a{text-decoration:none; color:inherit;}
+
+  /* outer chrome for review */
+  .review-topbar{background:var(--petroleo); color:#fbf1de; padding:12px 0; font-size:12px; text-transform:uppercase; letter-spacing:.05em; text-align:center;}
+  .chip-status{background:var(--dorado); color:#3a2c04; font-weight:800; padding:3px 10px; border-radius:999px; font-size:10.5px; margin-left:8px;}
+  .stage-wrap{max-width:900px; margin:0 auto; padding:30px 16px 60px; text-align:center;}
+  .stage-wrap h1{font-size:22px; margin-bottom:8px;}
+  .stage-wrap p{color:var(--ink-soft); font-size:14px; max-width:60ch; margin:0 auto 26px;}
+
+  /* phone frame */
+  .phone-outer{
+    width:min(390px,92vw); margin:0 auto; border:10px solid var(--petroleo-deep); border-radius:44px;
+    box-shadow:var(--shadow-3); overflow:hidden; background:var(--petroleo-deep);
+  }
+  .phone-screen{background:var(--bg); border-radius:34px; overflow:hidden; position:relative; max-height:850px; overflow-y:auto;}
+
+  /* header */
+  .site-header{
+    position:sticky; top:0; z-index:5; background:rgba(251,241,222,.92); backdrop-filter:blur(6px);
+    display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--line-soft);
+  }
+  .brand{display:flex; align-items:center; gap:8px; font-family:'Baloo 2'; font-weight:700; font-size:15px;}
+  .logo-dot{width:32px; height:32px; border-radius:50%; background:var(--petroleo); display:flex; align-items:center; justify-content:center; font-size:16px;}
+  .burger{font-size:20px; color:var(--petroleo);}
+
+  /* hero */
+  .hero{
+    position:relative; padding:34px 20px 40px; text-align:center; color:#fff8ea; overflow:hidden;
+    background:
+      linear-gradient(180deg, rgba(33,42,48,.55) 0%, rgba(33,42,48,.93) 100%),
+      repeating-linear-gradient(135deg, #d9a24a, #d9a24a 14px, #c98f38 14px, #c98f38 28px);
+  }
+  .hero .ph-note{
+    position:absolute; top:10px; left:10px; background:rgba(255,255,255,.85); color:#5a4a2c; font-size:9.5px;
+    padding:3px 8px; border-radius:999px; font-weight:700;
+  }
+  .hero-logo{width:64px; margin:0 auto 12px; filter:drop-shadow(0 4px 10px rgba(0,0,0,.3));}
+  .hero h1{font-size:28px; font-weight:800; line-height:1.15; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.35);}
+  .hero p.sub{font-size:14px; color:#f2e6c8; margin-top:10px; max-width:30ch; margin-left:auto; margin-right:auto;}
+  .hero-cta{display:flex; flex-direction:column; gap:10px; margin-top:20px; align-items:center;}
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:'Nunito Sans'; font-weight:800; font-size:14.5px; padding:14px 26px; border-radius:var(--r-btn); border:none; cursor:pointer; width:100%; max-width:280px;}
+  .btn-primary{background:var(--naranja-deep); color:#fff8ea; box-shadow:0 10px 20px -10px rgba(217,99,31,.6);}
+  .btn-secondary-onlight{background:transparent; color:var(--petroleo); border:2px solid var(--petroleo);}
+  .btn-secondary-ondark{background:transparent; color:#fff8ea; border:2px solid rgba(255,248,234,.7);}
+  .hero-meta{display:flex; gap:14px; justify-content:center; margin-top:18px; font-size:11.5px; color:#e9dcb8;}
+
+  section.block{padding:34px 20px;}
+  section.block + section.block{border-top:1px solid var(--line-soft);}
+  .eyebrow{font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--naranja-deep); margin-bottom:6px;}
+  h2.h2{font-size:22px; font-weight:700;}
+  p.lead{color:var(--ink-soft); font-size:14px; margin-top:8px;}
+
+  /* que es */
+  .concept-badges{display:flex; gap:8px; flex-wrap:wrap; margin-top:16px;}
+  .concept-badges span{background:var(--bg-card); border:1px solid var(--line); border-radius:999px; padding:6px 12px; font-size:12px; font-weight:700; color:var(--petroleo);}
+
+  /* productos / menu */
+  .prod-scroll{display:flex; gap:14px; overflow-x:auto; margin-top:16px; padding-bottom:6px; scroll-snap-type:x mandatory;}
+  .card-product{
+    flex:0 0 auto; width:200px; scroll-snap-align:start; background:var(--bg-card); border-radius:var(--r-card);
+    box-shadow:var(--shadow-2); overflow:hidden;
+  }
+  .card-product .ph{
+    height:130px; background:repeating-linear-gradient(45deg,var(--line-soft),var(--line-soft) 8px,transparent 8px,transparent 16px);
+    display:flex; align-items:center; justify-content:center; font-size:10.5px; color:var(--ink-soft); text-align:center; padding:8px;
+  }
+  .card-product .body{padding:12px 14px;}
+  .card-product .name{font-family:'Baloo 2'; font-weight:700; font-size:15px;}
+  .card-product .desc{font-size:11.5px; color:var(--ink-soft); margin-top:2px;}
+  .price-pill{font-size:11px; margin-top:8px; background:var(--bg-card-alt); display:inline-block; padding:3px 9px; border-radius:999px; color:var(--ink-soft); font-weight:700;}
+  .card-product .btn{margin-top:10px; padding:9px 14px; font-size:12.5px;}
+
+  .menu-cta{margin-top:18px; text-align:center;}
+
+  /* ocasiones */
+  .occ-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:16px;}
+  .occ-item{display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center;}
+  .occ-circle{width:52px; height:52px; border-radius:50%; background:var(--dorado-tint); display:flex; align-items:center; justify-content:center; font-size:22px;}
+  .occ-item span{font-size:10.5px; font-weight:700; color:var(--ink-soft);}
+
+  /* estrella */
+  .estrella-card{margin-top:16px; background:var(--bg-card); border-radius:var(--r-card); box-shadow:var(--shadow-2); overflow:hidden;}
+  .estrella-card .ph{height:150px; position:relative; background:repeating-linear-gradient(45deg,var(--line-soft),var(--line-soft) 8px,transparent 8px,transparent 16px); display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--ink-soft); text-align:center; padding:10px;}
+  .estrella-badge{position:absolute; top:10px; left:10px; background:var(--dorado); color:var(--tint-ink-warm); font-size:10px; font-weight:800; padding:4px 10px; border-radius:999px;}
+  .estrella-card .body{padding:16px;}
+
+  /* por que */
+  .why-list{display:flex; flex-direction:column; gap:12px; margin-top:16px;}
+  .why-item{display:flex; gap:10px; align-items:flex-start; background:var(--bg-card); border-radius:var(--r-container); padding:12px 14px; box-shadow:var(--shadow-1);}
+  .why-item .ic{font-size:18px;}
+  .why-item b{font-size:13.5px; display:block;}
+  .why-item span{font-size:12px; color:var(--ink-soft);}
+
+  /* testimonios */
+  .testi-card{margin-top:16px; background:var(--bg-card-alt); border:1.5px dashed var(--line); border-radius:var(--r-card); padding:26px 20px; text-align:center;}
+  .testi-card .mark{font-size:26px; opacity:.35; font-family:'Baloo 2';}
+  .testi-card p{font-size:13px; color:var(--ink-soft); margin-top:6px;}
+
+  /* galeria */
+  .gal-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:16px;}
+  .gal-grid .ph{height:90px; background:repeating-linear-gradient(45deg,var(--line-soft),var(--line-soft) 8px,transparent 8px,transparent 16px); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:9.5px; color:var(--ink-soft); text-align:center; padding:6px;}
+
+  /* faq */
+  .faq-item{background:var(--bg-card); border-radius:12px; border:1px solid var(--line-soft); margin-top:8px;}
+  .faq-item summary{cursor:pointer; font-weight:700; font-size:13.5px; padding:13px 15px; list-style:none; display:flex; justify-content:space-between; align-items:center;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item p{margin:0; padding:0 15px 13px; font-size:12.5px; color:var(--ink-soft);}
+  .faq-group-lbl{font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; color:var(--naranja-deep); margin:16px 0 4px;}
+  .faq-group-lbl:first-child{margin-top:16px;}
+
+  /* cobertura */
+  .cov-card{margin-top:16px; background:var(--bg-card); border-radius:var(--r-card); box-shadow:var(--shadow-1); padding:16px;}
+  .cov-zones{display:flex; gap:8px; margin-top:10px;}
+  .cov-zones span{background:var(--verde-tint); color:var(--tint-ink-green); font-size:12px; font-weight:700; padding:6px 12px; border-radius:999px;}
+
+  /* cta final */
+  .cta-final{
+    background:linear-gradient(135deg, var(--petroleo), var(--petroleo-deep)); color:#fff8ea; text-align:center;
+    padding:40px 20px;
+  }
+  .cta-final h2{color:#fff; font-size:24px;}
+  .cta-final p{color:#e9dcb8; font-size:13.5px; margin-top:8px;}
+  .cta-final .btn{margin:18px auto 0;}
+
+  /* footer */
+  footer.site-footer{background:var(--petroleo-deep); color:#e9dcb8; padding:26px 20px 90px; font-size:12.5px;}
+  footer.site-footer .f-brand{display:flex; align-items:center; gap:8px; font-family:'Baloo 2'; font-weight:700; color:#fff; font-size:15px; margin-bottom:10px;}
+  footer.site-footer .f-row{display:flex; flex-direction:column; gap:6px; margin-bottom:14px;}
+  footer.site-footer hr{border:none; border-top:1px solid rgba(233,220,184,.2); margin:14px 0;}
+  footer.site-footer .legal{font-size:11px; color:#c8b98c;}
+
+  /* sticky CTA */
+  .sticky-cta{
+    position:sticky; bottom:14px; margin:0 auto; width:calc(100% - 32px); max-width:340px;
+    background:var(--naranja-deep); color:#fff8ea; font-weight:800; font-size:13.5px; text-align:center;
+    padding:13px; border-radius:var(--r-btn); box-shadow:var(--shadow-3); display:flex; align-items:center; justify-content:center; gap:8px;
+    left:16px;
+  }
+
+  .annot{max-width:900px; margin:20px auto 0; background:var(--bg-card); border:1px solid var(--line-soft); border-radius:14px; padding:16px 20px; font-size:13px; color:var(--ink-soft); box-shadow:var(--shadow-1);}
+  .annot b{color:var(--ink);}
+</style>
+
+<div class="review-topbar">Pataconcitos · Fase 5 — Paso 2: Home completa <span class="chip-status">Para aprobación</span></div>
+
+<div class="stage-wrap">
+  <h1 style="font-family:'Baloo 2';">Home en alta fidelidad — mobile</h1>
+  <p>Aplicando el Design System aprobado. Todo lo marcado 🧪 es un ejemplo/propuesta y todo lo marcado ⏳ es un dato real pendiente de definir — nada de esto se presenta como contenido final.</p>
+
+  <div class="phone-outer">
+    <div class="phone-screen">
+
+      <header class="site-header">
+        <div class="brand"><span class="logo-dot">🍌</span> Pataconcitos</div>
+        <span class="burger">☰</span>
+      </header>
+
+      <!-- 1. HERO -->
+      <div class="hero">
+        <span class="ph-note">🧪 fondo de ejemplo — va foto real</span>
+        <div class="hero-logo">🍌</div>
+        <h1>¿Se te antojó?</h1>
+        <p class="sub">Patacones y plátano recién preparados, listos para compartir.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#">💬 Pedir por WhatsApp</a>
+          <a class="btn btn-secondary-ondark" href="#">Ver menú</a>
+        </div>
+        <div class="hero-meta"><span>📍 Medellín · Envigado</span><span>🕒 8am–5pm</span></div>
+      </div>
+
+      <!-- 2. QUÉ ES -->
+      <section class="block">
+        <div class="eyebrow">Quiénes somos</div>
+        <h2 class="h2">¿Qué es Pataconcitos?</h2>
+        <p class="lead">Un negocio hecho para los antojos de plátano — patacones, canastas y plátano aplastado, preparados bajo pedido y listos para compartir en cualquier plan.</p>
+        <div class="concept-badges"><span>🍌 100% plátano</span><span>🔥 Bajo pedido</span><span>🛵 A domicilio</span></div>
+      </section>
+
+      <!-- 3. NUESTROS PRODUCTOS -->
+      <section class="block">
+        <div class="eyebrow">Catálogo</div>
+        <h2 class="h2">Nuestros productos</h2>
+        <div class="prod-scroll">
+          <div class="card-product">
+            <div class="ph">Foto real — patacón verde</div>
+            <div class="body"><div class="name">🧪 Patacón verde</div><div class="desc">🧪 Crocante, recién frito</div><div class="price-pill">🔔 Precio pendiente</div></div>
+          </div>
+          <div class="card-product">
+            <div class="ph">Foto real — canasta</div>
+            <div class="body"><div class="name">🧪 Canasta mixta</div><div class="desc">🧪 Para compartir</div><div class="price-pill">🔔 Precio pendiente</div></div>
+          </div>
+          <div class="card-product">
+            <div class="ph">Foto real — aplastado</div>
+            <div class="body"><div class="name">🧪 Plátano aplastado</div><div class="desc">🧪 Con toppings</div><div class="price-pill">🔔 Precio pendiente</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. MENU/PRECIOS entry -->
+      <section class="block" style="background:var(--bg-card-alt);">
+        <div class="eyebrow">Menú</div>
+        <h2 class="h2">Arma tu pedido</h2>
+        <p class="lead">Mira todas las presentaciones, tamaños y combinaciones disponibles.</p>
+        <div class="menu-cta"><a class="btn btn-secondary-onlight" style="width:auto;" href="#">Ver menú completo</a></div>
+      </section>
+
+      <!-- 5. OCASIONES -->
+      <section class="block">
+        <div class="eyebrow">Para cada plan</div>
+        <h2 class="h2">Elige tu ocasión</h2>
+        <div class="occ-grid">
+          <div class="occ-item"><div class="occ-circle">🥑</div><span>Antojo</span></div>
+          <div class="occ-item"><div class="occ-circle">❤️</div><span>Pareja</span></div>
+          <div class="occ-item"><div class="occ-circle">👨‍👩‍👧‍👦</div><span>Familia</span></div>
+          <div class="occ-item"><div class="occ-circle">👥</div><span>Amigos</span></div>
+          <div class="occ-item"><div class="occ-circle">🎉</div><span>Parranda</span></div>
+          <div class="occ-item"><div class="occ-circle">🏢</div><span>Oficina</span></div>
+          <div class="occ-item"><div class="occ-circle">🎊</div><span>Reunión</span></div>
+        </div>
+      </section>
+
+      <!-- 6. PRODUCTO ESTRELLA -->
+      <section class="block" style="background:var(--bg-card-alt);">
+        <div class="eyebrow">El más pedido</div>
+        <h2 class="h2">Producto estrella</h2>
+        <div class="estrella-card">
+          <div class="ph"><span class="estrella-badge">⏳ Pendiente de identificar</span>Foto real del producto</div>
+          <div class="body">
+            <div style="font-family:'Baloo 2'; font-weight:700; font-size:16px;">🧪 Se define con datos de venta</div>
+            <p style="font-size:12.5px; color:var(--ink-soft); margin-top:4px;">Esta sección se activa apenas tengamos ventas registradas para identificar el producto más pedido.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. POR QUÉ -->
+      <section class="block">
+        <div class="eyebrow">Nuestra propuesta</div>
+        <h2 class="h2">¿Por qué Pataconcitos?</h2>
+        <div class="why-list">
+          <div class="why-item"><span class="ic">🔥</span><div><b>Bajo pedido</b><span>Preparado fresco, no de vitrina</span></div></div>
+          <div class="why-item"><span class="ic">🛵</span><div><b>Domicilio directo</b><span>Medellín y Envigado</span></div></div>
+          <div class="why-item"><span class="ic">💬</span><div><b>Atención cercana</b><span>Hablas directo con Sara por WhatsApp</span></div></div>
+        </div>
+      </section>
+
+      <!-- 8. TESTIMONIOS -->
+      <section class="block" style="background:var(--bg-card-alt);">
+        <div class="eyebrow">Lo que dicen</div>
+        <h2 class="h2">Testimonios</h2>
+        <div class="testi-card">
+          <div class="mark">"</div>
+          <p><strong>Próximamente</strong><br>Aquí vas a leer las experiencias reales de quienes ya probaron Pataconcitos.</p>
+        </div>
+      </section>
+
+      <!-- 9. GALERIA -->
+      <section class="block">
+        <div class="eyebrow">Antójate</div>
+        <h2 class="h2">Galería</h2>
+        <div class="gal-grid">
+          <div class="ph">Foto real</div><div class="ph">Video real</div>
+          <div class="ph">Foto real</div><div class="ph">Foto real</div>
+        </div>
+      </section>
+
+      <!-- 10. FAQ -->
+      <section class="block" style="background:var(--bg-card-alt);">
+        <div class="eyebrow">Antes de pedir</div>
+        <h2 class="h2">Preguntas frecuentes</h2>
+
+        <div class="faq-group-lbl">Cómo pedir</div>
+        <details class="faq-item" open><summary>¿Cómo hago un pedido? <span>−</span></summary><p>Escribiendo por WhatsApp — el botón principal te lleva directo allá.</p></details>
+        <details class="faq-item"><summary>¿Puedo personalizar mi pedido? <span>+</span></summary></details>
+
+        <div class="faq-group-lbl">Domicilios y zonas</div>
+        <details class="faq-item"><summary>¿Dónde hacen domicilios? <span>+</span></summary><p>Medellín y Envigado, dentro del Área Metropolitana.</p></details>
+        <details class="faq-item"><summary>¿Cuál es el costo del domicilio? <span>+</span></summary><p>Información pendiente de definir.</p></details>
+
+        <div class="faq-group-lbl">Horarios y pagos</div>
+        <details class="faq-item"><summary>¿Cuál es el horario de atención? <span>+</span></summary><p>8:00 a.m. a 5:00 p.m.</p></details>
+        <details class="faq-item"><summary>¿Cómo puedo pagar? <span>+</span></summary><p>Transferencia bancaria o efectivo.</p></details>
+
+        <div class="faq-group-lbl">Grupos y reuniones</div>
+        <details class="faq-item"><summary>¿Puedo pedir para una reunión? <span>+</span></summary><p>Sí — los detalles de capacidad para pedidos grandes están pendientes de confirmar.</p></details>
+      </section>
+
+      <!-- 11. COBERTURA -->
+      <section class="block">
+        <div class="eyebrow">Zona de entrega</div>
+        <h2 class="h2">¿Llegamos a tu zona?</h2>
+        <div class="cov-card">
+          <div class="ph" style="height:110px;">Mapa de cobertura (pendiente de detallar por sector)</div>
+          <div class="cov-zones"><span>✓ Medellín</span><span>✓ Envigado</span></div>
+        </div>
+      </section>
+
+      <!-- 12. CTA FINAL -->
+      <div class="cta-final">
+        <h2>¿Se te antojó?</h2>
+        <p>Escríbenos y armamos tu pedido juntos.</p>
+        <a class="btn btn-primary" href="#">💬 Pedir por WhatsApp</a>
+      </div>
+
+      <!-- 13. FOOTER -->
+      <footer class="site-footer">
+        <div class="f-brand">🍌 Pataconcitos</div>
+        <div class="f-row">
+          <span>📸 @pataconcitos.com_</span>
+          <span>💬 WhatsApp</span>
+          <span>🕒 8:00am – 5:00pm</span>
+          <span>📍 Medellín · Envigado</span>
+        </div>
+        <hr>
+        <div class="legal">Política de privacidad · Pataconcitos © 2026</div>
+      </footer>
+
+      <a class="sticky-cta" href="#">💬 Pedir por WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="annot">
+    <b>Notas de esta versión:</b> el CTA de WhatsApp aparece en Hero, Menú (como "Ver menú completo"), tarjetas de producto, CTA final y sticky — pero ya no se repite dentro de cada bloque secundario, para que no se sienta repetitivo. El naranja se usa también en el eyebrow de cada sección y en el sticky, de forma controlada, sin competir con el CTA principal. Todas las fotos son marcador honesto — ninguna imagen real fue inventada.
+  </div>
+</div>

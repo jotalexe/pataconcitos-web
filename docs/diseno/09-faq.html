@@ -1,0 +1,136 @@
+<title>FAQ Pataconcitos — Alta Fidelidad</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800&display=swap');
+
+  :root{
+    --bg:#fbf1de; --bg-card:#ffffff; --bg-card-alt:#fff7e8;
+    --ink:#2a2622; --ink-soft:#726b5c;
+    --petroleo:#33414a; --petroleo-deep:#212a30;
+    --naranja:#d9631f; --naranja-deep:#b64e14; --naranja-tint:#fbe3d3;
+    --dorado:#e8aa2b; --dorado-tint:#fbead0;
+    --verde:#7fa050; --verde-tint:#e7efdc;
+    --line:#e7d9b8; --line-soft:#f0e6cc;
+    --shadow-1: 0 1px 2px rgba(42,38,34,.07), 0 2px 6px -3px rgba(42,38,34,.10);
+    --shadow-2: 0 2px 6px rgba(42,38,34,.07), 0 10px 22px -12px rgba(42,38,34,.20);
+    --shadow-3: 0 6px 14px rgba(42,38,34,.10), 0 20px 40px -16px rgba(42,38,34,.28);
+    --r-btn:999px; --r-card:20px; --r-container:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#211d18; --bg-card:#2b2620; --bg-card-alt:#332c24;
+      --ink:#f4ecd8; --ink-soft:#c6bda5; --line:#4a4033; --line-soft:#3a3227;
+      --naranja-tint:#4a2c1c; --dorado-tint:#463819; --verde-tint:#33402a;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#211d18; --bg-card:#2b2620; --bg-card-alt:#332c24;
+    --ink:#f4ecd8; --ink-soft:#c6bda5; --line:#4a4033; --line-soft:#3a3227;
+    --naranja-tint:#4a2c1c; --dorado-tint:#463819; --verde-tint:#33402a;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0; background:var(--bg);}
+  body{color:var(--ink); font-family:'Nunito Sans',sans-serif; line-height:1.5;}
+  h1,h2,h3{font-family:'Baloo 2',sans-serif; margin:0;}
+  a{text-decoration:none; color:inherit;}
+
+  .review-topbar{background:var(--petroleo); color:#fbf1de; padding:12px 0; font-size:12px; text-transform:uppercase; letter-spacing:.05em; text-align:center;}
+  .chip-status{background:var(--dorado); color:#3a2c04; font-weight:800; padding:3px 10px; border-radius:999px; font-size:10.5px; margin-left:8px;}
+  .stage-wrap{max-width:900px; margin:0 auto; padding:30px 16px 60px; text-align:center;}
+  .stage-wrap h1{font-size:22px; margin-bottom:8px;}
+  .stage-wrap p{color:var(--ink-soft); font-size:14px; max-width:60ch; margin:0 auto 26px;}
+
+  .phone-outer{width:min(390px,92vw); margin:0 auto; border:10px solid var(--petroleo-deep); border-radius:44px; box-shadow:var(--shadow-3); overflow:hidden; background:var(--petroleo-deep);}
+  .phone-screen{background:var(--bg); border-radius:34px; overflow:hidden; position:relative; max-height:900px; overflow-y:auto;}
+
+  .site-header{position:sticky; top:0; z-index:6; background:rgba(251,241,222,.94); backdrop-filter:blur(6px); display:flex; align-items:center; gap:10px; padding:14px 16px; border-bottom:1px solid var(--line-soft);}
+  .back{font-size:18px; color:var(--petroleo);}
+  .brand{font-family:'Baloo 2'; font-weight:700; font-size:14px;}
+
+  .page-head{padding:18px 20px 4px; text-align:left;}
+  .eyebrow{font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--naranja-deep);}
+  .page-head h1{font-size:24px; margin-top:4px;}
+  .page-head p{font-size:13px; color:var(--ink-soft); margin-top:6px;}
+
+  .cat-tabs{display:flex; gap:8px; overflow-x:auto; padding:12px 20px; position:sticky; top:60px; background:var(--bg); z-index:5; border-bottom:1px solid var(--line-soft);}
+  .cat-tabs span{flex:0 0 auto; background:var(--bg-card); border:1px solid var(--line); color:var(--ink-soft); font-size:11.5px; font-weight:700; padding:7px 13px; border-radius:999px; white-space:nowrap;}
+  .cat-tabs span.active{background:var(--naranja-deep); color:#fff8ea; border-color:var(--naranja-deep);}
+
+  .faq-wrap{padding:16px 20px 90px; text-align:left;}
+  .faq-group-lbl{font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; color:var(--naranja-deep); margin:20px 0 8px;}
+  .faq-group-lbl:first-child{margin-top:4px;}
+  .faq-item{background:var(--bg-card); border-radius:14px; border:1px solid var(--line-soft); margin-bottom:8px; box-shadow:var(--shadow-1);}
+  .faq-item summary{cursor:pointer; font-weight:700; font-size:13.5px; padding:14px 16px; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:10px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item .ic{flex:0 0 auto; width:22px; height:22px; border-radius:50%; background:var(--dorado-tint); display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--naranja-deep); font-weight:800;}
+  .faq-item p{margin:0; padding:0 16px 15px 48px; font-size:13px; color:var(--ink-soft);}
+  .faq-item p.pending{color:var(--naranja-deep); font-style:italic;}
+
+  .cta-box{margin-top:24px; background:linear-gradient(135deg, var(--petroleo), var(--petroleo-deep)); color:#fff8ea; border-radius:var(--r-card); padding:20px; text-align:center;}
+  .cta-box h3{color:#fff; font-size:15px;}
+  .cta-box p{font-size:12px; color:#e9dcb8; margin-top:6px;}
+  .btn-primary{display:inline-block; margin-top:12px; background:var(--naranja-deep); color:#fff8ea; font-weight:800; font-size:13px; padding:11px 20px; border-radius:999px;}
+
+  .annot{max-width:900px; margin:20px auto 0; background:var(--bg-card); border:1px solid var(--line-soft); border-radius:14px; padding:16px 20px; font-size:13px; color:var(--ink-soft); box-shadow:var(--shadow-1); text-align:left;}
+  .annot b{color:var(--ink);}
+</style>
+
+<div class="review-topbar">Pataconcitos · Fase 5 — Paso 6: FAQ <span class="chip-status">Para aprobación</span></div>
+
+<div class="stage-wrap">
+  <h1 style="font-family:'Baloo 2';">FAQ en alta fidelidad — mobile</h1>
+  <p>Acordeón agrupado por el tipo de objeción que resuelve, empezando por lo que más frena un pedido. Ningún dato pendiente se completa con una suposición.</p>
+
+  <div class="phone-outer">
+    <div class="phone-screen">
+
+      <header class="site-header"><span class="back">←</span><span class="brand">Preguntas frecuentes</span></header>
+
+      <div class="page-head">
+        <div class="eyebrow">Antes de pedir</div>
+        <h1>¿Tienes dudas?</h1>
+        <p>Esto resuelve lo más común. Si no encuentras tu respuesta, escríbenos por WhatsApp.</p>
+      </div>
+
+      <div class="cat-tabs">
+        <span class="active">Todas</span>
+        <span>Cómo pedir</span>
+        <span>Domicilios</span>
+        <span>Horarios y pagos</span>
+        <span>Grupos</span>
+      </div>
+
+      <div class="faq-wrap">
+        <div class="faq-group-lbl">🛒 Cómo pedir</div>
+        <details class="faq-item" open><summary><span><span class="ic">−</span> ¿Cómo hago un pedido?</span></summary><p>Escribiendo directamente por WhatsApp — el botón principal te lleva allá.</p></details>
+        <details class="faq-item"><summary><span><span class="ic">+</span> ¿Los pedidos son bajo encargo?</span></summary><p>Sí, todos nuestros pedidos se preparan bajo encargo.</p></details>
+        <details class="faq-item"><summary><span><span class="ic">+</span> ¿Puedo personalizar mi pedido?</span></summary><p>Sí, la personalización es parte del modelo actual; el alcance exacto se termina de definir junto con el menú.</p></details>
+
+        <div class="faq-group-lbl">🛵 Domicilios y zonas</div>
+        <details class="faq-item"><summary><span><span class="ic">+</span> ¿Dónde hacen domicilios?</span></summary><p>Medellín y Envigado, dentro del Área Metropolitana del Valle de Aburrá.</p></details>
+        <details class="faq-item"><summary><span><span class="ic">+</span> ¿Cuál es el costo del domicilio?</span></summary><p class="pending">Información pendiente de definir.</p></details>
+        <details class="faq-item"><summary><span><span class="ic">+</span> ¿Existe pedido mínimo?</span></summary><p class="pending">Información pendiente de definir.</p></details>
+        <details class="faq-item"><summary><span><span class="ic">+</span> ¿Cuánto tarda un pedido?</span></summary><p class="pending">Información pendiente de definir — depende de la preparación y la zona.</p></details>
+
+        <div class="faq-group-lbl">🕒 Horarios y pagos</div>
+        <details class="faq-item"><summary><span><span class="ic">+</span> ¿Cuál es el horario de atención?</span></summary><p>8:00 a.m. a 5:00 p.m.</p></details>
+        <details class="faq-item"><summary><span><span class="ic">+</span> ¿Cómo puedo pagar?</span></summary><p>Transferencia bancaria o efectivo.</p></details>
+        <details class="faq-item"><summary><span><span class="ic">+</span> ¿Aceptan efectivo?</span></summary><p>Sí.</p></details>
+        <details class="faq-item"><summary><span><span class="ic">+</span> ¿Aceptan transferencia?</span></summary><p>Sí.</p></details>
+
+        <div class="faq-group-lbl">🎉 Grupos y reuniones</div>
+        <details class="faq-item"><summary><span><span class="ic">+</span> ¿Puedo hacer un pedido para una reunión o evento?</span></summary><p>Sí, atendemos pedidos por encargo para grupos; los detalles de capacidad para pedidos grandes están pendientes de confirmar.</p></details>
+
+        <div class="cta-box">
+          <h3>¿No encontraste tu respuesta?</h3>
+          <p>Escríbenos directo — con gusto te ayudamos.</p>
+          <a class="btn-primary" href="#">💬 Preguntar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="annot">
+    <b>Decisiones de esta pantalla:</b> el orden de los grupos sigue exactamente la lógica de objeciones que definimos (cómo pedir → domicilios/zonas → horarios/pagos → grupos). El ícono +/− de cada pregunta usa el dorado, dejando el naranja reservado casi por completo para el CTA final de la página. Las respuestas pendientes se ven en cursiva color naranja oscuro, para que se noten como "dato futuro" sin parecer un error de contenido.
+  </div>
+</div>

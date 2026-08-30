@@ -1,0 +1,459 @@
+<title>Wireframes Pataconcitos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap');
+
+  :root{
+    --bg:#f4f1ea;
+    --bg-card:#ffffff;
+    --ink:#2b2b28;
+    --ink-soft:#6b6a62;
+    --line:#c9c6bb;
+    --line-soft:#e3e0d5;
+    --block:#e7e4d9;
+    --accent:#c2571f;
+    --shadow: 0 1px 2px rgba(30,28,20,.05), 0 6px 18px -10px rgba(30,28,20,.18);
+    --radius: 18px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#211f1b; --bg-card:#2b2925; --ink:#efece2; --ink-soft:#b3b0a3;
+      --line:#4a473e; --line-soft:#38362f; --block:#38362f;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 18px -10px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#211f1b; --bg-card:#2b2925; --ink:#efece2; --ink-soft:#b3b0a3;
+    --line:#4a473e; --line-soft:#38362f; --block:#38362f;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 18px -10px rgba(0,0,0,.5);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Nunito Sans',sans-serif; line-height:1.5;}
+  h1,h2,h3{font-family:'Baloo 2',sans-serif; margin:0; text-wrap:balance;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
+  img{max-width:100%;}
+
+  .topbar{background:var(--ink); color:var(--bg); padding:14px 0; font-size:13px; text-transform:uppercase; letter-spacing:.04em;}
+  .topbar .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  .chip{background:var(--accent); color:#fff; padding:3px 12px; border-radius:999px; font-size:11.5px; font-weight:700;}
+
+  header.intro{padding:44px 0 30px;}
+  .eyebrow{color:var(--accent); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;}
+  h1{font-size:clamp(26px,4vw,36px); font-weight:800;}
+  .intro p{max-width:70ch; color:var(--ink-soft); margin-top:12px; font-size:15.5px;}
+  .legend{display:flex; gap:16px; flex-wrap:wrap; margin-top:20px; font-size:13px; color:var(--ink-soft);}
+  .legend span{display:inline-flex; align-items:center; gap:6px;}
+  .legend i{width:12px; height:12px; border-radius:3px; display:inline-block;}
+
+  section{padding:36px 0;}
+  section + section{border-top:1px dashed var(--line);}
+  .section-num{color:var(--accent); font-weight:700; font-size:12.5px; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px;}
+  h2{font-size:22px; font-weight:700; margin-bottom:6px;}
+  .section-sub{color:var(--ink-soft); font-size:14.5px; max-width:70ch; margin-bottom:22px;}
+
+  /* phone frame */
+  .frames-row{display:flex; gap:26px; flex-wrap:wrap; align-items:flex-start;}
+  .frame{width:270px; flex:0 0 auto;}
+  .frame-label{font-weight:700; font-size:13px; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .phone{border:2px solid var(--ink); border-radius:30px; padding:8px; background:var(--bg-card); box-shadow:var(--shadow);}
+  .screen{border:1px dashed var(--line); border-radius:20px; min-height:560px; overflow:hidden; background:var(--bg-card); position:relative;}
+
+  .wf-block{border-bottom:1px dashed var(--line); padding:12px 12px;}
+  .wf-block:last-child{border-bottom:none;}
+  .wf-label{font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); font-weight:700; margin-bottom:6px;}
+  .wf-note{font-size:10.5px; color:var(--accent); margin-top:4px; font-style:italic;}
+
+  .img-ph{
+    background:repeating-linear-gradient(45deg, var(--block), var(--block) 6px, transparent 6px, transparent 12px);
+    border:1px dashed var(--line); border-radius:10px; height:70px;
+    display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--ink-soft);
+  }
+  .bar{background:var(--block); border-radius:6px; height:10px;}
+  .bar.w60{width:60%;} .bar.w40{width:40%;} .bar.w80{width:80%;} .bar.w30{width:30%;}
+  .row-gap > * + *{margin-top:6px;}
+  .btn-wf{
+    border-radius:999px; text-align:center; font-size:11px; font-weight:700; padding:9px; margin-top:8px;
+  }
+  .btn-wf.primary{background:var(--accent); color:#fff;}
+  .btn-wf.secondary{border:1.5px solid var(--ink); color:var(--ink);}
+  .chip-row{display:flex; gap:6px; overflow-x:auto; margin-top:6px;}
+  .chip-wf{background:var(--block); border-radius:999px; font-size:9.5px; padding:5px 9px; white-space:nowrap; color:var(--ink-soft); font-weight:700;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  .card-wf{border:1px solid var(--line-soft); border-radius:10px; padding:8px; background:var(--bg-card);}
+  .sticky-cta{
+    position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
+    background:var(--accent); color:#fff; font-size:10.5px; font-weight:700; padding:8px 16px; border-radius:999px;
+    box-shadow:0 6px 14px -6px rgba(194,87,31,.6);
+  }
+  .accordion-wf{border:1px solid var(--line-soft); border-radius:8px; padding:8px 10px; margin-top:6px;}
+  .accordion-wf .q{font-size:11px; font-weight:700; display:flex; justify-content:space-between;}
+  .accordion-wf .a{font-size:9.5px; color:var(--ink-soft); margin-top:4px;}
+  .avatar-ph{width:28px; height:28px; border-radius:50%; background:var(--block); border:1px dashed var(--line);}
+
+  .annot-box{
+    margin-top:16px; background:var(--bg-card); border:1px solid var(--line-soft); border-radius:12px;
+    padding:14px 16px; font-size:13px; color:var(--ink-soft); box-shadow:var(--shadow);
+  }
+  .annot-box strong{color:var(--ink);}
+
+  /* components sheet */
+  .comp-sheet{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px;}
+  .comp-box{background:var(--bg-card); border:1px solid var(--line-soft); border-radius:14px; padding:18px; box-shadow:var(--shadow);}
+  .comp-box h3{font-size:14px; margin-bottom:12px;}
+
+  /* desktop note */
+  .desktop-note{display:flex; gap:16px; align-items:flex-start; background:var(--bg-card); border:1px solid var(--line-soft); border-radius:14px; padding:18px; box-shadow:var(--shadow);}
+  .desktop-note .icon{font-size:22px;}
+
+  footer.page-footer{background:var(--ink); color:var(--bg); padding:26px 0; text-align:center; font-size:13px;}
+
+  @media (max-width:700px){
+    .frames-row{justify-content:center;}
+  }
+</style>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Pataconcitos · Fase 5 — Diseño · Wireframes</span>
+    <span class="chip">Para aprobación</span>
+  </div>
+</div>
+
+<header class="intro">
+  <div class="wrap">
+    <div class="eyebrow">Wireframes · Estructura antes que estética</div>
+    <h1>Cómo se organiza cada pantalla — todavía sin el pulido visual final</h1>
+    <p>Esto es esqueleto y jerarquía: qué va primero, qué tan grande, qué lleva a WhatsApp. El color y la tipografía definitivos ya están aprobados en la dirección creativa — aquí se aplican solo como acento para marcar la acción principal, no como diseño terminado. Todo el contenido marcado en cursiva naranja es un recordatorio de un dato pendiente del blueprint (no se está inventando nada).</p>
+    <div class="legend">
+      <span><i style="background:var(--block);"></i> Bloque de contenido / imagen</span>
+      <span><i style="background:var(--accent);"></i> Acción principal (WhatsApp)</span>
+      <span><i style="background:transparent;border:1.5px solid var(--ink);"></i> Acción secundaria</span>
+    </div>
+  </div>
+</header>
+
+<section id="home">
+  <div class="wrap">
+    <div class="section-num">01</div>
+    <h2>Home (mobile) — recorrido completo de conversión</h2>
+    <p class="section-sub">Las 13 secciones acordadas en el blueprint, en el orden en que aparecen al hacer scroll.</p>
+
+    <div class="frame">
+      <div class="frame-label">📱 Home — mobile, scroll completo</div>
+      <div class="phone">
+        <div class="screen" style="min-height:1900px;">
+
+          <div class="wf-block">
+            <div class="wf-label">1 · Hero</div>
+            <div class="img-ph">Logo + foto real de producto</div>
+            <div class="row-gap" style="margin-top:8px;">
+              <div class="bar w80"></div>
+              <div class="bar w60"></div>
+            </div>
+            <div class="btn-wf primary">Pedir por WhatsApp</div>
+            <div class="btn-wf secondary">Ver menú</div>
+          </div>
+
+          <div class="wf-block">
+            <div class="wf-label">2 · ¿Qué es Pataconcitos?</div>
+            <div class="bar w40"></div>
+            <div class="row-gap" style="margin-top:6px;"><div class="bar w80"></div><div class="bar w60"></div></div>
+          </div>
+
+          <div class="wf-block">
+            <div class="wf-label">3 · Nuestros productos</div>
+            <div class="grid2">
+              <div class="card-wf"><div class="img-ph">foto</div><div class="bar w60" style="margin-top:6px;"></div></div>
+              <div class="card-wf"><div class="img-ph">foto</div><div class="bar w60" style="margin-top:6px;"></div></div>
+            </div>
+          </div>
+
+          <div class="wf-block">
+            <div class="wf-label">4 · Menú y precios</div>
+            <div class="card-wf">
+              <div class="img-ph">foto</div>
+              <div class="bar w60" style="margin-top:6px;"></div>
+              <div class="bar w30" style="margin-top:4px;"></div>
+              <div class="wf-note">"Información pendiente de definir" mientras no haya precio real</div>
+            </div>
+            <div class="btn-wf secondary">Ver menú completo</div>
+          </div>
+
+          <div class="wf-block">
+            <div class="wf-label">5 · Elige tu ocasión</div>
+            <div class="chip-row">
+              <span class="chip-wf">Antojo</span><span class="chip-wf">Pareja</span><span class="chip-wf">Parranda</span><span class="chip-wf">Familia</span><span class="chip-wf">Oficina</span>
+            </div>
+            <div class="wf-note">🔶 Hipótesis de segmentación — a validar</div>
+          </div>
+
+          <div class="wf-block">
+            <div class="wf-label">6 · Producto estrella</div>
+            <div class="img-ph">foto destacada</div>
+            <div class="wf-note">⏳ Se activa cuando exista un producto identificado como estrella</div>
+          </div>
+
+          <div class="wf-block">
+            <div class="wf-label">7 · ¿Por qué Pataconcitos?</div>
+            <div class="row-gap"><div class="bar w80"></div><div class="bar w60"></div></div>
+            <div class="wf-note">⏳ Solo diferenciadores validados — sin UVP inventada</div>
+          </div>
+
+          <div class="wf-block">
+            <div class="wf-label">8 · Testimonios</div>
+            <div class="card-wf" style="display:flex; gap:8px; align-items:center;">
+              <div class="avatar-ph"></div>
+              <div style="flex:1;"><div class="bar w80"></div><div class="bar w60" style="margin-top:4px;"></div></div>
+            </div>
+            <div class="wf-note">⏳ "Contenido pendiente de recopilar" hasta tener testimonios reales</div>
+          </div>
+
+          <div class="wf-block">
+            <div class="wf-label">9 · Galería</div>
+            <div class="grid2">
+              <div class="img-ph">foto real</div>
+              <div class="img-ph">video real</div>
+            </div>
+          </div>
+
+          <div class="wf-block">
+            <div class="wf-label">10 · Preguntas frecuentes</div>
+            <div class="accordion-wf"><div class="q">¿Cuál es el horario? <span>+</span></div></div>
+            <div class="accordion-wf"><div class="q">¿Cuál es el costo del domicilio? <span>+</span></div><div class="a">Información pendiente de definir</div></div>
+          </div>
+
+          <div class="wf-block">
+            <div class="wf-label">11 · Zona de cobertura</div>
+            <div class="img-ph">mapa / lista Medellín + Envigado</div>
+          </div>
+
+          <div class="wf-block">
+            <div class="wf-label">12 · CTA final</div>
+            <div class="bar w40" style="margin:0 auto;"></div>
+            <div class="btn-wf primary">¿Se te antojó? Pedir por WhatsApp</div>
+          </div>
+
+          <div class="wf-block">
+            <div class="wf-label">13 · Footer</div>
+            <div class="row-gap"><div class="bar w60"></div><div class="bar w40"></div><div class="bar w30"></div></div>
+          </div>
+
+          <div class="sticky-cta">💬 Pedir por WhatsApp</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="annot-box">
+      <strong>Nota de estructura:</strong> el botón de WhatsApp aparece 4 veces (Hero, Menú, CTA final, sticky) porque es el CTA principal del sitio — nunca debe estar a más de un scroll de distancia. El sticky se mantiene visible en todo el recorrido, tal como se definió en la estrategia de conversión del blueprint.
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="section-num">02</div>
+    <h2>Menú / Productos (mobile)</h2>
+    <p class="section-sub">Filtro por categoría y por ocasión, tarjetas de producto con precio marcado como pendiente.</p>
+
+    <div class="frames-row">
+      <div class="frame">
+        <div class="frame-label">📱 Menú — listado</div>
+        <div class="phone">
+          <div class="screen" style="min-height:520px;">
+            <div class="wf-block">
+              <div class="wf-label">Filtro por categoría</div>
+              <div class="chip-row">
+                <span class="chip-wf">Todo</span><span class="chip-wf">Verde</span><span class="chip-wf">Maduro</span><span class="chip-wf">Canastas</span><span class="chip-wf">Aplastado</span>
+              </div>
+            </div>
+            <div class="wf-block">
+              <div class="wf-label">Filtro por ocasión</div>
+              <div class="chip-row">
+                <span class="chip-wf">Antojo</span><span class="chip-wf">Compartir</span><span class="chip-wf">Familia</span>
+              </div>
+            </div>
+            <div class="wf-block">
+              <div class="wf-label">Producto 1</div>
+              <div class="card-wf">
+                <div class="img-ph">foto real</div>
+                <div class="bar w60" style="margin-top:6px;"></div>
+                <div class="bar w40" style="margin-top:4px;"></div>
+                <div class="wf-note">Precio: pendiente de definir</div>
+                <div class="btn-wf primary">Pedir por WhatsApp</div>
+              </div>
+            </div>
+            <div class="wf-block">
+              <div class="wf-label">Producto 2</div>
+              <div class="card-wf">
+                <div class="img-ph">foto real</div>
+                <div class="bar w60" style="margin-top:6px;"></div>
+                <div class="bar w40" style="margin-top:4px;"></div>
+                <div class="wf-note">Precio: pendiente de definir</div>
+                <div class="btn-wf primary">Pedir por WhatsApp</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="frame">
+        <div class="frame-label">📱 Producto — detalle</div>
+        <div class="phone">
+          <div class="screen" style="min-height:520px;">
+            <div class="wf-block">
+              <div class="img-ph" style="height:160px;">Galería del producto (foto/video real)</div>
+            </div>
+            <div class="wf-block">
+              <div class="bar w60"></div>
+              <div class="row-gap" style="margin-top:6px;"><div class="bar w80"></div><div class="bar w40"></div></div>
+              <div class="wf-note">Ingredientes: pendiente de definir</div>
+              <div class="wf-note">Precio: pendiente de definir</div>
+            </div>
+            <div class="wf-block">
+              <div class="wf-label">Ocasión sugerida</div>
+              <div class="chip-row"><span class="chip-wf">Pareja</span><span class="chip-wf">Antojo</span></div>
+            </div>
+            <div class="wf-block">
+              <div class="btn-wf primary">Pedir este producto por WhatsApp</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonios-faq">
+  <div class="wrap">
+    <div class="section-num">03</div>
+    <h2>Testimonios y FAQ (mobile)</h2>
+    <p class="section-sub">Ambas secciones muestran honestamente lo que aún falta, en vez de simularlo.</p>
+
+    <div class="frames-row">
+      <div class="frame">
+        <div class="frame-label">📱 Testimonios</div>
+        <div class="phone">
+          <div class="screen" style="min-height:460px;">
+            <div class="wf-block">
+              <div class="bar w60"></div>
+              <div class="card-wf" style="margin-top:10px; text-align:center; padding:20px 10px;">
+                <div class="wf-note" style="font-size:12px;">🧪 "Contenido pendiente de recopilar."<br>Aquí aparecerán experiencias reales de clientes.</div>
+              </div>
+            </div>
+            <div class="wf-block">
+              <div class="wf-label">Cuando existan (estructura lista)</div>
+              <div class="card-wf" style="display:flex; gap:8px; align-items:flex-start;">
+                <div class="avatar-ph"></div>
+                <div style="flex:1;">
+                  <div class="bar w40"></div>
+                  <div class="bar w80" style="margin-top:4px;"></div>
+                  <div class="bar w60" style="margin-top:4px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="frame">
+        <div class="frame-label">📱 FAQ</div>
+        <div class="phone">
+          <div class="screen" style="min-height:460px;">
+            <div class="wf-block">
+              <div class="bar w40"></div>
+              <div class="accordion-wf"><div class="q">¿Qué es Pataconcitos? <span>+</span></div></div>
+              <div class="accordion-wf"><div class="q">¿Cómo puedo pedir? <span>+</span></div></div>
+              <div class="accordion-wf"><div class="q">¿Cuál es el costo del domicilio? <span>−</span></div><div class="a">Información pendiente de definir</div></div>
+              <div class="accordion-wf"><div class="q">¿Aceptan transferencia? <span>+</span></div></div>
+              <div class="accordion-wf"><div class="q">¿Existe pedido mínimo? <span>+</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="componentes">
+  <div class="wrap">
+    <div class="section-num">04</div>
+    <h2>Componentes reutilizables</h2>
+    <p class="section-sub">Las piezas que se repiten en todo el sitio — mismo wireframe, distintos lugares.</p>
+
+    <div class="comp-sheet">
+      <div class="comp-box">
+        <h3>CTA de WhatsApp (sticky)</h3>
+        <div style="position:relative; height:70px; background:var(--block); border-radius:10px;">
+          <div class="sticky-cta" style="bottom:12px;">💬 Pedir por WhatsApp</div>
+        </div>
+        <div class="wf-note" style="margin-top:8px;">Fijo en la parte inferior, visible en todas las pantallas mobile.</div>
+      </div>
+
+      <div class="comp-box">
+        <h3>Botones</h3>
+        <div class="btn-wf primary">Pedir por WhatsApp</div>
+        <div class="btn-wf secondary" style="margin-top:8px;">Ver menú</div>
+      </div>
+
+      <div class="comp-box">
+        <h3>Tarjeta de producto</h3>
+        <div class="card-wf">
+          <div class="img-ph">foto real</div>
+          <div class="bar w60" style="margin-top:6px;"></div>
+          <div class="wf-note">Precio: pendiente</div>
+        </div>
+      </div>
+
+      <div class="comp-box">
+        <h3>Chip de ocasión</h3>
+        <div class="chip-row"><span class="chip-wf">Antojo</span><span class="chip-wf">Familia</span></div>
+      </div>
+
+      <div class="comp-box">
+        <h3>Ítem de FAQ (acordeón)</h3>
+        <div class="accordion-wf"><div class="q">Pregunta <span>+</span></div></div>
+      </div>
+
+      <div class="comp-box">
+        <h3>Tarjeta de testimonio</h3>
+        <div class="card-wf" style="display:flex; gap:8px;">
+          <div class="avatar-ph"></div>
+          <div style="flex:1;"><div class="bar w40"></div><div class="bar w80" style="margin-top:4px;"></div></div>
+        </div>
+      </div>
+
+      <div class="comp-box">
+        <h3>Header / navegación</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 10px; background:var(--block); border-radius:8px;">
+          <div class="bar w30" style="width:30px;"></div>
+          <div class="bar w30" style="width:20px; height:14px;"></div>
+        </div>
+      </div>
+
+      <div class="comp-box">
+        <h3>Footer</h3>
+        <div style="background:var(--ink); border-radius:8px; padding:10px;">
+          <div class="row-gap"><div class="bar w60" style="background:#666;"></div><div class="bar w40" style="background:#666;"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="desktop">
+  <div class="wrap">
+    <div class="section-num">05</div>
+    <h2>Nota sobre versión de escritorio</h2>
+    <div class="desktop-note">
+      <div class="icon">🖥️</div>
+      <div>
+        <p style="margin:0 0 8px; font-size:14.5px;"><strong>El diseño es mobile-first</strong>: la mayoría del tráfico llega desde Instagram en celular, así que cada pantalla de arriba se diseñó primero para ese formato.</p>
+        <p style="margin:0; font-size:14.5px; color:var(--ink-soft);">En escritorio, los mismos bloques se reorganizan en 2–3 columnas donde tenga sentido (productos, galería), el CTA de WhatsApp deja de ser flotante y pasa a la barra de navegación superior, y el ancho de línea del texto se limita para mantener buena lectura. No se agregan secciones nuevas — es la misma estructura, con más espacio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="page-footer">
+  Pataconcitos · Wireframes v1 · Pendiente de tu aprobación antes de pasar al diseño de alta fidelidad
+</footer>

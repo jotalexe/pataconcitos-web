@@ -1,0 +1,339 @@
+<title>Dirección Creativa Alta Fidelidad</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,600&display=swap');
+
+  :root{
+    --bg:#fbf1de;
+    --bg-card:#ffffff;
+    --bg-card-alt:#fff7e8;
+    --ink:#2a2622;
+    --ink-soft:#726b5c;
+    --petroleo:#33414a;
+    --petroleo-deep:#212a30;
+    --naranja:#d9631f;
+    --naranja-deep:#b64e14;
+    --dorado:#e8aa2b;
+    --verde:#7fa050;
+    --line:#e7d9b8;
+    --line-soft:#f0e6cc;
+    --shadow-sm: 0 1px 2px rgba(42,38,34,.06), 0 3px 10px -6px rgba(42,38,34,.12);
+    --shadow-md: 0 4px 10px rgba(42,38,34,.06), 0 14px 32px -16px rgba(42,38,34,.22);
+    --r-sm:10px; --r-md:16px; --r-lg:24px; --r-pill:999px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#211d18; --bg-card:#2b2620; --bg-card-alt:#332c24;
+      --ink:#f4ecd8; --ink-soft:#c6bda5; --line:#4a4033; --line-soft:#3a3227;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.3); --shadow-md: 0 14px 32px -16px rgba(0,0,0,.55);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#211d18; --bg-card:#2b2620; --bg-card-alt:#332c24;
+    --ink:#f4ecd8; --ink-soft:#c6bda5; --line:#4a4033; --line-soft:#3a3227;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.3); --shadow-md: 0 14px 32px -16px rgba(0,0,0,.55);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Nunito Sans',sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Baloo 2',sans-serif; margin:0; text-wrap:balance; color:var(--ink);}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+
+  .topbar{background:var(--petroleo); color:#fbf1de; padding:14px 0; font-size:12.5px; text-transform:uppercase; letter-spacing:.05em;}
+  .topbar .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  .chip{background:var(--dorado); color:#3a2c04; font-weight:800; padding:4px 12px; border-radius:var(--r-pill); font-size:11.5px;}
+
+  header.intro{padding:52px 0 34px;}
+  .eyebrow{color:var(--naranja-deep); font-weight:800; font-size:13px; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;}
+  h1.page-title{font-size:clamp(28px,4vw,40px); font-weight:800; line-height:1.1;}
+  .intro p{max-width:68ch; color:var(--ink-soft); margin-top:14px; font-size:16.5px;}
+
+  section{padding:38px 0;}
+  section + section{border-top:1px solid var(--line-soft);}
+  .item{display:grid; grid-template-columns: 260px 1fr; gap:24px; padding:20px 0; border-bottom:1px solid var(--line-soft);}
+  .item:last-child{border-bottom:none;}
+  @media (max-width:720px){ .item{grid-template-columns:1fr;} }
+  .item-num{font-family:'Baloo 2'; font-size:13px; color:var(--naranja-deep); font-weight:800; letter-spacing:.04em;}
+  .item-title{font-family:'Baloo 2'; font-weight:700; font-size:18px; margin-top:4px;}
+  .item-why{font-size:13px; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .item-body{font-size:15px;}
+  .item-body p{margin:0 0 8px;}
+
+  h2.section-title{font-size:24px; font-weight:700; margin-bottom:4px;}
+  .section-lead{color:var(--ink-soft); font-size:14.5px; margin-bottom:8px; max-width:70ch;}
+
+  /* palette */
+  .pal-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-top:6px;}
+  .pal-swatch{border-radius:var(--r-md); overflow:hidden; box-shadow:var(--shadow-sm);}
+  .pal-color{height:64px;}
+  .pal-info{background:var(--bg-card); padding:10px 12px; font-size:12.5px;}
+  .pal-info b{display:block; font-family:'Baloo 2'; font-size:13.5px;}
+  .pal-info span{color:var(--ink-soft); font-variant-numeric:tabular-nums;}
+
+  /* type scale */
+  .type-scale-row{display:flex; align-items:baseline; gap:16px; padding:8px 0; border-bottom:1px dashed var(--line);}
+  .type-scale-row:last-child{border-bottom:none;}
+  .type-scale-row .lbl{width:60px; flex:0 0 auto; font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em;}
+  .type-scale-row .sample{font-family:'Baloo 2'; font-weight:700;}
+
+  /* buttons/cards demo */
+  .btn{display:inline-flex; align-items:center; gap:8px; font-family:'Nunito Sans'; font-weight:800; font-size:15px; padding:14px 24px; border-radius:var(--r-pill); border:none; cursor:pointer; text-decoration:none;}
+  .btn-primary{background:var(--naranja-deep); color:#fff8ea; box-shadow:0 10px 20px -10px rgba(182,78,20,.6);}
+  .btn-secondary{background:transparent; color:var(--petroleo); border:2px solid var(--petroleo);}
+  .demo-row{display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:10px;}
+
+  .card-demo{background:var(--bg-card); border-radius:var(--r-lg); box-shadow:var(--shadow-md); overflow:hidden; max-width:280px;}
+  .card-demo .ph{height:150px; background:repeating-linear-gradient(45deg,var(--line-soft),var(--line-soft) 8px,transparent 8px,transparent 16px); display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--ink-soft); text-align:center; padding:10px;}
+  .card-demo .body{padding:16px;}
+  .card-demo .name{font-family:'Baloo 2'; font-weight:700; font-size:17px;}
+  .card-demo .desc{font-size:13.5px; color:var(--ink-soft); margin-top:4px;}
+  .card-demo .price{font-size:13px; margin-top:10px; background:var(--bg-card-alt); display:inline-block; padding:4px 10px; border-radius:var(--r-pill); color:var(--ink-soft); font-weight:700;}
+
+  /* hero concept */
+  .hero-demo{
+    position:relative; border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow-md);
+    background: linear-gradient(180deg, rgba(33,42,48,.15), rgba(33,42,48,.85)),
+                repeating-linear-gradient(45deg, #cbb98a, #cbb98a 10px, #bfa876 10px, #bfa876 20px);
+    color:#fff8ea; padding:44px 26px 30px; text-align:center;
+  }
+  .hero-demo .badge{
+    width:56px; height:56px; border-radius:50%; background:var(--petroleo); margin:0 auto 14px;
+    display:flex; align-items:center; justify-content:center; font-size:24px; box-shadow:var(--shadow-sm);
+  }
+  .hero-demo h3{font-size:26px; font-weight:800; color:#fff;}
+  .hero-demo p{font-size:14px; color:#f3e9d0; margin-top:8px; max-width:32ch; margin-left:auto; margin-right:auto;}
+  .hero-demo .demo-row{justify-content:center;}
+  .hero-photo-note{font-size:11px; color:#e9dcb8; margin-top:14px;}
+
+  /* sticky demo */
+  .sticky-demo-wrap{position:relative; height:110px; background:var(--bg-card-alt); border-radius:var(--r-md); border:1px dashed var(--line);}
+  .sticky-demo{
+    position:absolute; bottom:14px; right:14px; background:var(--naranja-deep); color:#fff8ea; font-weight:800; font-size:13px;
+    padding:12px 20px; border-radius:var(--r-pill); box-shadow:0 10px 20px -8px rgba(217,99,31,.6);
+    display:flex; align-items:center; gap:6px;
+  }
+
+  /* faq demo */
+  .faq-demo{border:1px solid var(--line); border-radius:var(--r-sm); background:var(--bg-card); margin-bottom:8px;}
+  .faq-demo summary{cursor:pointer; font-weight:700; font-size:14.5px; padding:12px 16px; list-style:none; display:flex; justify-content:space-between;}
+  .faq-demo summary::-webkit-details-marker{display:none;}
+  .faq-demo p{margin:0; padding:0 16px 14px; font-size:13.5px; color:var(--ink-soft);}
+
+  /* testimonial placeholder */
+  .testi-placeholder{
+    background:var(--bg-card-alt); border:1.5px dashed var(--line); border-radius:var(--r-lg); padding:26px; text-align:center;
+  }
+  .testi-placeholder .mark{font-size:30px; opacity:.35; font-family:'Baloo 2';}
+  .testi-placeholder p{font-size:14px; color:var(--ink-soft); margin-top:6px;}
+
+  .swatch-mini{display:inline-block; width:14px; height:14px; border-radius:4px; vertical-align:-2px; margin-right:6px;}
+
+  footer.page-footer{background:var(--petroleo); color:#f3e9d0; padding:28px 0; text-align:center; font-size:13.5px;}
+</style>
+
+<div class="topbar">
+  <div class="wrap"><span>Pataconcitos · Fase 5 — Diseño de alta fidelidad</span><span class="chip">Para aprobación</span></div>
+</div>
+
+<header class="intro">
+  <div class="wrap">
+    <div class="eyebrow">Dirección creativa de alta fidelidad</div>
+    <h1 class="page-title">El sistema definitivo, decisión por decisión — con el porqué de cada una.</h1>
+    <p>Todo parte de lo ya aprobado: el logo real, la paleta extraída de él, y los wireframes. Aquí se afina cada detalle (color exacto, tipografía, espaciado, sombras, iconografía) antes de diseñar cada pantalla completa. Al final hay una muestra pequeña — Hero + tarjeta + CTA + color + tipografía — para que veas todo funcionando junto antes de aprobar.</p>
+  </div>
+</header>
+
+<section id="paleta">
+  <div class="wrap">
+    <h2 class="section-title">1 · Paleta de colores definitiva</h2>
+    <p class="section-lead">Fondos claros y neutros para que el producto sea el protagonista; el azul petróleo, naranja y dorado del logo quedan como acentos de marca, no como fondo dominante.</p>
+    <div class="pal-grid">
+      <div class="pal-swatch"><div class="pal-color" style="background:#33414a;"></div><div class="pal-info"><b>Petróleo</b><span>#33414A</span></div></div>
+      <div class="pal-swatch"><div class="pal-color" style="background:#d9631f;"></div><div class="pal-info"><b>Naranja antojo</b><span>#D9631F</span></div></div>
+      <div class="pal-swatch"><div class="pal-color" style="background:#e8aa2b;"></div><div class="pal-info"><b>Dorado</b><span>#E8AA2B</span></div></div>
+      <div class="pal-swatch"><div class="pal-color" style="background:#fbf1de;"></div><div class="pal-info"><b>Crema fondo</b><span>#FBF1DE</span></div></div>
+      <div class="pal-swatch"><div class="pal-color" style="background:#7fa050;"></div><div class="pal-info"><b>Verde plátano</b><span>#7FA050</span></div></div>
+      <div class="pal-swatch"><div class="pal-color" style="background:#2a2622;"></div><div class="pal-info"><b>Tinta</b><span>#2A2622</span></div></div>
+    </div>
+    <p class="item-why" style="margin-top:14px;">Por qué: el petróleo y el dorado ya son la marca (vienen del logo); el naranja se usa exclusivamente para la acción de pedir, así el ojo lo reconoce siempre como "aquí se compra". El crema evita el blanco frío de una web corporativa — se siente más a antojo/cocina casera que a oficina.</p>
+  </div>
+</section>
+
+<section id="tipografia">
+  <div class="wrap">
+    <h2 class="section-title">2–4 · Tipografía y escala</h2>
+    <p class="section-lead"><b>Títulos:</b> Baloo 2 — redondeada, con peso, misma familia visual que el trazo del sello del logo. <b>Textos:</b> Nunito Sans — muy legible en pantallas pequeñas, sin perder calidez.</p>
+    <div style="background:var(--bg-card); border-radius:var(--r-md); padding:20px 24px; box-shadow:var(--shadow-sm);">
+      <div class="type-scale-row"><span class="lbl">H1</span><span class="sample" style="font-size:38px;">¿Se te antojó?</span></div>
+      <div class="type-scale-row"><span class="lbl">H2</span><span class="sample" style="font-size:28px;">Nuestros productos</span></div>
+      <div class="type-scale-row"><span class="lbl">H3</span><span class="sample" style="font-size:21px;">Canasta para compartir</span></div>
+      <div class="type-scale-row"><span class="lbl">Body</span><span style="font-family:'Nunito Sans'; font-size:16px;">Patacones y plátano recién preparados, para compartir.</span></div>
+      <div class="type-scale-row"><span class="lbl">Small</span><span style="font-family:'Nunito Sans'; font-size:13px; color:var(--ink-soft);">Horario: 8:00am – 5:00pm</span></div>
+    </div>
+    <p class="item-why" style="margin-top:14px;">Por qué: Baloo 2 se ve "antojable" incluso en un titular simple — evita el look corporativo de una sans-serif genérica tipo Inter. Nunito Sans mantiene esa misma calidez redondeada en párrafos largos (menú, FAQ) sin sacrificar velocidad de lectura en el celular.</p>
+  </div>
+</section>
+
+<section id="componentes-spec">
+  <div class="wrap">
+    <h2 class="section-title">5–10 · Componentes, forma y espaciado</h2>
+
+    <div class="item">
+      <div><div class="item-num">05</div><div class="item-title">Botones</div></div>
+      <div class="item-body">
+        <div class="demo-row"><a class="btn btn-primary" href="#">Pedir por WhatsApp</a><a class="btn btn-secondary" href="#">Ver menú</a></div>
+        <p class="item-why">Forma de píldora (radius 999px): amigable, nunca agresiva. El primario siempre en naranja — es el único elemento de ese color fuera del logo, así se vuelve inconfundible como "acción de compra".</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div><div class="item-num">06–07</div><div class="item-title">Tarjetas y border-radius</div></div>
+      <div class="item-body">
+        <p>Escala de radios: <b>10px</b> (chips, badges), <b>16px</b> (botones internos, inputs), <b>24px</b> (tarjetas, hero, contenedores grandes).</p>
+        <p class="item-why">Esquinas redondeadas en toda la interfaz porque el propio sello del logo es un círculo — es consistencia de forma, no una moda genérica.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div><div class="item-num">08</div><div class="item-title">Sombras</div></div>
+      <div class="item-body">
+        <p>Sombras suaves con tinte cálido (no negro puro): sutil en tarjetas de reposo, un poco más marcada en el CTA sticky para que "flote" sobre el contenido.</p>
+        <p class="item-why">Una sombra fría (gris/negro) enfriaría visualmente una marca que se define como cálida y cercana.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div><div class="item-num">09</div><div class="item-title">Iconografía</div></div>
+      <div class="item-body">
+        <p>Trazo redondeado y grosor consistente (no iconos afilados/corporativos); para "ocasiones" se prioriza <b>emoji real</b> (🥑❤️👨‍👩‍👧‍👦👥🎉🏢🎊) antes que iconos abstractos — son más cálidos, reconocibles y coherentes con el tono divertido, y no requieren producir un set de íconos a la medida en el MVP.</p>
+        <p class="item-why">El emoji resuelve rápido, sin costo, y ya es el lenguaje visual que Pataconcitos usa en Instagram y WhatsApp — mantiene consistencia entre canales.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div><div class="item-num">10</div><div class="item-title">Espaciado</div></div>
+      <div class="item-body">
+        <p>Escala base de 8px: 8 · 16 · 24 · 32 · 48 · 64. Todo margen/padding sale de esta escala.</p>
+        <p class="item-why">Una escala fija evita que la página se sienta "hecha a ojo" — cada bloque respira igual, lo cual se nota especialmente en una pantalla angosta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="foto-nav">
+  <div class="wrap">
+    <h2 class="section-title">11–13 · Fotografía, navegación y CTA sticky</h2>
+
+    <div class="item">
+      <div><div class="item-num">11</div><div class="item-title">Estilo fotográfico</div></div>
+      <div class="item-body">
+        <p>Luz cálida (dorada, no blanca/fría), primeros planos de textura y crocante, manos compartiendo, ambiente de mesa/parche — nunca fondo de estudio ni foto de banco.</p>
+        <p class="item-why">Es la forma más directa de transmitir "antojo + compartir" sin necesitar texto.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div><div class="item-num">12</div><div class="item-title">Navegación</div></div>
+      <div class="item-body">
+        <p>Mobile: barra superior simple (logo pequeño + menú hamburguesa). Desktop: barra horizontal con el botón "Pedir por WhatsApp" integrado a la derecha de la navegación (no solo flotante).</p>
+        <p class="item-why">En desktop no hace falta un botón flotante invasivo — la navegación fija ya cumple esa función sin ocupar espacio de pantalla.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div><div class="item-num">13</div><div class="item-title">CTA sticky (mobile)</div></div>
+      <div class="item-body">
+        <div class="sticky-demo-wrap"><div class="sticky-demo">💬 Pedir por WhatsApp</div></div>
+        <p class="item-why">Aparece con un fundido suave después del Hero (no desde el primer pixel, para no competir con el CTA principal del Hero) y se mantiene fijo el resto del recorrido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu-testi-faq">
+  <div class="wrap">
+    <h2 class="section-title">14–16 · Menú, testimonios y FAQ</h2>
+
+    <div class="item">
+      <div><div class="item-num">14</div><div class="item-title">Menú</div></div>
+      <div class="item-body">
+        <div class="card-demo">
+          <div class="ph">Foto real del producto<br>(pendiente hasta tener sesión de fotos)</div>
+          <div class="body">
+            <div class="name">🧪 Nombre del producto</div>
+            <div class="desc">🧪 Descripción corta del producto</div>
+            <div class="price">Precio: información pendiente de definir</div>
+          </div>
+        </div>
+        <p class="item-why" style="margin-top:10px;">La tarjeta se diseñó para que el precio "pendiente" se vea igual de cuidado que un precio real — una etiqueta suave, no un espacio vacío ni un error visual.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div><div class="item-num">15</div><div class="item-title">Testimonios</div></div>
+      <div class="item-body">
+        <div class="testi-placeholder">
+          <div class="mark">"</div>
+          <p><strong>Próximamente</strong><br>Aquí vas a leer lo que dicen quienes ya probaron Pataconcitos.</p>
+        </div>
+        <p class="item-why" style="margin-top:10px;">Diseñado deliberadamente distinto a una tarjeta de testimonio real (sin foto de persona, sin nombre, sin comillas de cita completas) para que nadie lo confunda con una reseña inventada.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <div><div class="item-num">16</div><div class="item-title">FAQ</div></div>
+      <div class="item-body">
+        <details class="faq-demo" open><summary>¿Cómo hago un pedido? <span>−</span></summary><p>Escribiendo por WhatsApp — el botón principal te lleva directo allá.</p></details>
+        <details class="faq-demo"><summary>¿Cuál es el costo del domicilio? <span>+</span></summary></details>
+        <details class="faq-demo"><summary>¿Puedo pedir para una reunión? <span>+</span></summary></details>
+        <p class="item-why">Mismo acordeón en mobile y desktop, ordenado por lo que más frena un pedido: cómo pedir → domicilios/zonas → horarios → pagos → personalización → grupos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="responsive-micro">
+  <div class="wrap">
+    <h2 class="section-title">18–19 · Responsive y microinteracciones</h2>
+    <div class="item">
+      <div><div class="item-num">18</div><div class="item-title">Comportamiento responsive</div></div>
+      <div class="item-body"><p>1 columna en mobile → 2 columnas en tablet → 3 columnas en desktop para tarjetas de producto y galería. El Hero pasa de imagen de fondo completa (mobile) a composición imagen+texto lado a lado (desktop).</p></div>
+    </div>
+    <div class="item">
+      <div><div class="item-num">19</div><div class="item-title">Microinteracciones</div></div>
+      <div class="item-body">
+        <p>CTA sticky con fundido de entrada al hacer scroll; acordeón de FAQ con expansión suave; tarjetas de producto con leve zoom de la foto al pasar el mouse (desktop); chips de ocasión con estado activo marcado en naranja. Todo respeta <code>prefers-reduced-motion</code> — sin animaciones forzadas.</p>
+        <p class="item-why">Interacciones pequeñas, no un festival de animaciones — la prioridad es que el sitio cargue rápido en el celular de alguien que llegó desde Instagram.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="muestra">
+  <div class="wrap">
+    <h2 class="section-title">17 · Muestra conceptual — Hero + tarjeta + CTA + color + tipografía juntos</h2>
+    <p class="section-lead">Composición pequeña, no la pantalla completa — solo para validar que el sistema funciona en conjunto antes de diseñar cada sección entera.</p>
+
+    <div class="hero-demo">
+      <div class="badge">🍌</div>
+      <h3>¿Se te antojó?</h3>
+      <p>Patacones y plátano recién preparados, listos para compartir. Domicilios en Medellín y Envigado.</p>
+      <div class="demo-row"><a class="btn btn-primary" href="#">Pedir por WhatsApp</a><a class="btn btn-secondary" style="border-color:#fff8ea; color:#fff8ea;" href="#">Ver menú</a></div>
+      <div class="hero-photo-note">🧪 Fondo de ejemplo — en el sitio real va una fotografía real del producto (pendiente de sesión fotográfica)</div>
+    </div>
+
+    <div style="margin-top:24px; display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start;">
+      <div class="card-demo">
+        <div class="ph">Foto real del producto</div>
+        <div class="body">
+          <div class="name">🧪 Canasta ejemplo</div>
+          <div class="desc">🧪 Patacones con toppings, para compartir</div>
+          <div class="price">Precio: pendiente de definir</div>
+          <div class="demo-row" style="margin-top:12px;"><a class="btn btn-primary" style="padding:10px 18px; font-size:13.5px;" href="#">Pedir por WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="page-footer">Pataconcitos · Dirección creativa de alta fidelidad · Pendiente de tu aprobación antes de diseñar cada pantalla completa</footer>

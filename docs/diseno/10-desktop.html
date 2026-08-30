@@ -1,0 +1,252 @@
+<title>Pataconcitos Desktop — Alta Fidelidad</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800&display=swap');
+
+  :root{
+    --bg:#fbf1de; --bg-card:#ffffff; --bg-card-alt:#fff7e8;
+    --ink:#2a2622; --ink-soft:#726b5c;
+    --petroleo:#33414a; --petroleo-deep:#212a30;
+    --naranja:#d9631f; --naranja-deep:#b64e14; --naranja-tint:#fbe3d3;
+    --dorado:#e8aa2b; --dorado-tint:#fbead0;
+    --verde:#7fa050; --verde-tint:#e7efdc;
+    --tint-ink-warm:#4a3305; --tint-ink-green:#4d6633;
+    --line:#e7d9b8; --line-soft:#f0e6cc;
+    --shadow-1: 0 1px 2px rgba(42,38,34,.07), 0 2px 6px -3px rgba(42,38,34,.10);
+    --shadow-2: 0 2px 6px rgba(42,38,34,.07), 0 10px 22px -12px rgba(42,38,34,.20);
+    --shadow-3: 0 6px 14px rgba(42,38,34,.10), 0 20px 40px -16px rgba(42,38,34,.28);
+    --r-btn:999px; --r-card:22px; --r-container:16px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#211d18; --bg-card:#2b2620; --bg-card-alt:#332c24;
+      --ink:#f4ecd8; --ink-soft:#c6bda5; --line:#4a4033; --line-soft:#3a3227;
+      --naranja-tint:#4a2c1c; --dorado-tint:#463819; --verde-tint:#33402a;
+      --tint-ink-warm:#f6dfa8; --tint-ink-green:#c9dcb2;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#211d18; --bg-card:#2b2620; --bg-card-alt:#332c24;
+    --ink:#f4ecd8; --ink-soft:#c6bda5; --line:#4a4033; --line-soft:#3a3227;
+    --naranja-tint:#4a2c1c; --dorado-tint:#463819; --verde-tint:#33402a;
+      --tint-ink-warm:#f6dfa8; --tint-ink-green:#c9dcb2;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0; background:var(--bg);}
+  body{color:var(--ink); font-family:'Nunito Sans',sans-serif; line-height:1.55;}
+  h1,h2,h3{font-family:'Baloo 2',sans-serif; margin:0; text-wrap:balance;}
+  a{text-decoration:none; color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .review-topbar{background:var(--petroleo); color:#fbf1de; padding:12px 0; font-size:12px; text-transform:uppercase; letter-spacing:.05em; text-align:center;}
+  .chip-status{background:var(--dorado); color:#3a2c04; font-weight:800; padding:3px 10px; border-radius:999px; font-size:10.5px; margin-left:8px;}
+  .stage-wrap{max-width:1280px; margin:0 auto; padding:30px 16px 60px;}
+  .stage-wrap > .head{text-align:center; margin-bottom:24px;}
+  .stage-wrap h1{font-size:22px; margin-bottom:8px;}
+  .stage-wrap > .head p{color:var(--ink-soft); font-size:14px; max-width:70ch; margin:0 auto;}
+
+  .browser-frame{border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-3); background:var(--bg-card);}
+  .browser-bar{display:flex; align-items:center; gap:8px; padding:10px 14px; background:#e9ddc0; border-bottom:1px solid var(--line);}
+  .browser-bar .dot{width:9px; height:9px; border-radius:50%; background:#c9b98d;}
+  .browser-bar .url{flex:1; background:var(--bg-card); border-radius:8px; padding:5px 12px; font-size:11.5px; color:var(--ink-soft); text-align:center;}
+
+  .site{overflow:hidden;}
+
+  /* desktop nav */
+  .d-nav{display:flex; align-items:center; justify-content:space-between; padding:16px 40px; background:rgba(251,241,222,.95); border-bottom:1px solid var(--line-soft); position:sticky; top:0; z-index:5;}
+  .d-brand{display:flex; align-items:center; gap:10px; font-family:'Baloo 2'; font-weight:700; font-size:17px;}
+  .d-logo{width:36px; height:36px; border-radius:50%; background:var(--petroleo); display:flex; align-items:center; justify-content:center; font-size:17px;}
+  .d-links{display:flex; gap:28px; font-size:13.5px; font-weight:700; color:var(--petroleo);}
+  .d-nav-right{display:flex; align-items:center; gap:16px;}
+  .btn{display:inline-flex; align-items:center; gap:8px; font-family:'Nunito Sans'; font-weight:800; font-size:13.5px; padding:11px 20px; border-radius:var(--r-btn); border:none; cursor:pointer;}
+  .btn-primary{background:var(--naranja-deep); color:#fff8ea; box-shadow:0 8px 16px -8px rgba(217,99,31,.55);}
+  .btn-secondary{background:transparent; color:var(--petroleo); border:2px solid var(--petroleo);}
+
+  /* hero split */
+  .d-hero{display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:40px; padding:60px 60px; background:var(--bg-card-alt);}
+  .d-hero .txt .eyebrow{font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--naranja-deep); margin-bottom:10px;}
+  .d-hero h1{font-size:44px; font-weight:800; line-height:1.1; text-shadow:0 1px 0 rgba(255,255,255,.4);}
+  .d-hero p.sub{font-size:16px; color:var(--ink-soft); margin-top:14px; max-width:42ch;}
+  .d-hero .cta-row{display:flex; gap:14px; margin-top:26px;}
+  .d-hero .meta{display:flex; gap:18px; margin-top:22px; font-size:12.5px; color:var(--ink-soft);}
+  .d-hero .img-box{
+    height:340px; border-radius:28px; overflow:hidden; position:relative;
+    background: repeating-linear-gradient(135deg, #d9a24a, #d9a24a 14px, #c98f38 14px, #c98f38 28px);
+    display:flex; align-items:center; justify-content:center; color:#fff; font-size:12px; text-align:center;
+  }
+  .img-box .note{background:rgba(33,42,48,.65); padding:6px 14px; border-radius:999px;}
+
+  section.d-block{padding:56px 60px;}
+  section.d-block + section.d-block{border-top:1px solid var(--line-soft);}
+  .d-block .kicker{font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--naranja-deep); margin-bottom:6px; text-align:center;}
+  .d-block h2{font-size:30px; text-align:center;}
+  .d-block .lead{color:var(--ink-soft); font-size:15px; text-align:center; max-width:60ch; margin:10px auto 30px;}
+
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .card-product{background:var(--bg-card); border-radius:var(--r-card); box-shadow:var(--shadow-2); overflow:hidden; transition:transform .15s ease;}
+  .card-product .ph{height:190px; background:repeating-linear-gradient(45deg,var(--line-soft),var(--line-soft) 8px,transparent 8px,transparent 16px); display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--ink-soft);}
+  .card-product .body{padding:18px 20px;}
+  .card-product .name{font-family:'Baloo 2'; font-weight:700; font-size:18px;}
+  .card-product .desc{font-size:13px; color:var(--ink-soft); margin-top:4px;}
+  .price-pill{font-size:12px; margin-top:10px; background:var(--bg-card-alt); display:inline-block; padding:4px 10px; border-radius:999px; color:var(--ink-soft); font-weight:700;}
+  .card-product .btn{margin-top:14px; width:100%; justify-content:center; padding:10px;}
+
+  .occ-row-d{display:flex; justify-content:center; gap:26px; flex-wrap:wrap;}
+  .occ-item-d{display:flex; flex-direction:column; align-items:center; gap:8px;}
+  .occ-circle-d{width:74px; height:74px; border-radius:50%; background:var(--dorado-tint); display:flex; align-items:center; justify-content:center; font-size:32px;}
+  .occ-item-d span{font-size:12.5px; font-weight:700; color:var(--ink-soft);}
+
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;}
+  .testi-card-d{background:var(--bg-card-alt); border:1.5px dashed var(--line); border-radius:var(--r-card); padding:40px; text-align:center;}
+  .testi-card-d .mark{font-size:32px; opacity:.35; font-family:'Baloo 2';}
+  .faq-item{background:var(--bg-card); border-radius:14px; border:1px solid var(--line-soft); margin-bottom:10px;}
+  .faq-item summary{cursor:pointer; font-weight:700; font-size:14px; padding:14px 18px; list-style:none; display:flex; justify-content:space-between;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item p{margin:0; padding:0 18px 15px; font-size:13px; color:var(--ink-soft);}
+
+  .gal-grid-d{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .gal-grid-d .ph{height:150px; background:repeating-linear-gradient(45deg,var(--line-soft),var(--line-soft) 8px,transparent 8px,transparent 16px); border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--ink-soft);}
+
+  .cov-d{display:flex; gap:30px; align-items:center; justify-content:center;}
+  .cov-map{width:340px; height:180px; border-radius:20px; background:repeating-linear-gradient(45deg,var(--line-soft),var(--line-soft) 8px,transparent 8px,transparent 16px); display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--ink-soft);}
+  .cov-zones-d span{background:var(--verde-tint); color:var(--tint-ink-green); font-size:13px; font-weight:700; padding:8px 16px; border-radius:999px; display:inline-block; margin:4px;}
+
+  .cta-final-d{background:linear-gradient(135deg, var(--petroleo), var(--petroleo-deep)); color:#fff8ea; text-align:center; padding:60px;}
+  .cta-final-d h2{color:#fff; font-size:32px;}
+  .cta-final-d p{color:#e9dcb8; font-size:15px; margin-top:10px;}
+  .cta-final-d .btn{margin:22px auto 0;}
+
+  footer.d-footer{background:var(--petroleo-deep); color:#e9dcb8; padding:40px 60px; font-size:13px;}
+  .f-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:30px;}
+  .f-brand-d{display:flex; align-items:center; gap:8px; font-family:'Baloo 2'; font-weight:700; color:#fff; font-size:17px; margin-bottom:10px;}
+  .f-col b{display:block; color:#fff; font-size:12.5px; margin-bottom:10px; text-transform:uppercase; letter-spacing:.04em;}
+  .f-col div{margin-bottom:6px; color:#c8b98c;}
+  footer.d-footer hr{border:none; border-top:1px solid rgba(233,220,184,.2); margin:24px 0 14px;}
+
+  .diff-note{
+    max-width:1280px; margin:26px auto 0; background:var(--bg-card); border:1px solid var(--line-soft); border-radius:14px;
+    padding:18px 22px; font-size:13.5px; color:var(--ink-soft); box-shadow:var(--shadow-1);
+  }
+  .diff-note b{color:var(--ink);}
+  .diff-note ul{margin:10px 0 0; padding-left:20px;}
+  .diff-note li{margin-bottom:6px;}
+</style>
+
+<div class="review-topbar">Pataconcitos · Fase 5 — Paso 7: Responsive desktop <span class="chip-status">Para aprobación</span></div>
+
+<div class="stage-wrap">
+  <div class="head">
+    <h1 style="font-family:'Baloo 2';">Home adaptada a desktop</h1>
+    <p>No es el mobile "estirado" — se reorganiza aprovechando el espacio: navegación horizontal con WhatsApp integrado (sin botón flotante), hero dividido en texto + imagen, productos y galería en grillas de 3–4 columnas.</p>
+  </div>
+
+  <div class="browser-frame">
+    <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="url">pataconcitos.com</div></div>
+
+    <div class="site">
+      <nav class="d-nav">
+        <div class="d-brand"><span class="d-logo">🍌</span> Pataconcitos</div>
+        <div class="d-links"><span>Menú</span><span>Ocasiones</span><span>Testimonios</span><span>FAQ</span><span>Nosotros</span></div>
+        <div class="d-nav-right"><a class="btn btn-primary" href="#">💬 Pedir por WhatsApp</a></div>
+      </nav>
+
+      <div class="d-hero">
+        <div class="txt">
+          <div class="eyebrow">Antojo + compartir</div>
+          <h1>¿Se te antojó?</h1>
+          <p class="sub">Patacones y plátano recién preparados, listos para compartir. Domicilios en Medellín y Envigado.</p>
+          <div class="cta-row"><a class="btn btn-primary" href="#">💬 Pedir por WhatsApp</a><a class="btn btn-secondary" href="#">Ver menú</a></div>
+          <div class="meta"><span>📍 Medellín · Envigado</span><span>🕒 8am – 5pm</span></div>
+        </div>
+        <div class="img-box"><span class="note">🧪 Foto real del producto — pendiente de sesión fotográfica</span></div>
+      </div>
+
+      <section class="d-block">
+        <div class="kicker">Catálogo</div>
+        <h2>Nuestros productos</h2>
+        <p class="lead">Tres categorías, un mismo antojo: plátano recién preparado.</p>
+        <div class="grid3">
+          <div class="card-product"><div class="ph">Foto real</div><div class="body"><div class="name">🧪 Patacón verde</div><div class="desc">🧪 Crocante, recién frito</div><div class="price-pill">🔔 Precio pendiente</div><a class="btn btn-primary" href="#">Pedir por WhatsApp</a></div></div>
+          <div class="card-product"><div class="ph">Foto real</div><div class="body"><div class="name">🧪 Canasta mixta</div><div class="desc">🧪 Para compartir</div><div class="price-pill">🔔 Precio pendiente</div><a class="btn btn-primary" href="#">Pedir por WhatsApp</a></div></div>
+          <div class="card-product"><div class="ph">Foto real</div><div class="body"><div class="name">🧪 Plátano aplastado</div><div class="desc">🧪 Con toppings</div><div class="price-pill">🔔 Precio pendiente</div><a class="btn btn-primary" href="#">Pedir por WhatsApp</a></div></div>
+        </div>
+      </section>
+
+      <section class="d-block" style="background:var(--bg-card-alt);">
+        <div class="kicker">Para cada plan</div>
+        <h2>Elige tu ocasión</h2>
+        <div class="occ-row-d">
+          <div class="occ-item-d"><div class="occ-circle-d">🥑</div><span>Antojo</span></div>
+          <div class="occ-item-d"><div class="occ-circle-d">❤️</div><span>Pareja</span></div>
+          <div class="occ-item-d"><div class="occ-circle-d">👨‍👩‍👧‍👦</div><span>Familia</span></div>
+          <div class="occ-item-d"><div class="occ-circle-d">👥</div><span>Amigos</span></div>
+          <div class="occ-item-d"><div class="occ-circle-d">🎉</div><span>Parranda</span></div>
+          <div class="occ-item-d"><div class="occ-circle-d">🏢</div><span>Oficina</span></div>
+          <div class="occ-item-d"><div class="occ-circle-d">🎊</div><span>Reunión</span></div>
+        </div>
+      </section>
+
+      <section class="d-block">
+        <div class="kicker">Antójate</div>
+        <h2>Galería</h2>
+        <div class="gal-grid-d">
+          <div class="ph">Foto real</div><div class="ph">Video real</div><div class="ph">Foto real</div><div class="ph">Foto real</div>
+        </div>
+      </section>
+
+      <section class="d-block" style="background:var(--bg-card-alt);">
+        <div class="two-col">
+          <div>
+            <div class="kicker" style="text-align:left;">Lo que dicen</div>
+            <h2 style="text-align:left; font-size:26px;">Testimonios</h2>
+            <div class="testi-card-d" style="margin-top:16px;"><div class="mark">"</div><p style="color:var(--ink-soft); margin-top:6px;"><strong>Próximamente</strong><br>Aquí vas a leer experiencias reales de clientes.</p></div>
+          </div>
+          <div>
+            <div class="kicker" style="text-align:left;">Antes de pedir</div>
+            <h2 style="text-align:left; font-size:26px;">Preguntas frecuentes</h2>
+            <div style="margin-top:16px;">
+              <details class="faq-item" open><summary>¿Cómo hago un pedido? <span>−</span></summary><p>Escribiendo por WhatsApp — el botón principal te lleva directo allá.</p></details>
+              <details class="faq-item"><summary>¿Cuál es el costo del domicilio? <span>+</span></summary><p>Información pendiente de definir.</p></details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="d-block">
+        <div class="kicker">Zona de entrega</div>
+        <h2>¿Llegamos a tu zona?</h2>
+        <div class="cov-d" style="margin-top:20px;">
+          <div class="cov-map">Mapa de cobertura (pendiente de detallar por sector)</div>
+          <div class="cov-zones-d"><span>✓ Medellín</span><span>✓ Envigado</span></div>
+        </div>
+      </section>
+
+      <div class="cta-final-d">
+        <h2>¿Se te antojó?</h2>
+        <p>Escríbenos y armamos tu pedido juntos.</p>
+        <a class="btn btn-primary" href="#">💬 Pedir por WhatsApp</a>
+      </div>
+
+      <footer class="d-footer">
+        <div class="f-grid">
+          <div><div class="f-brand-d">🍌 Pataconcitos</div><p style="color:#c8b98c; font-size:12.5px;">Patacones y plátano a domicilio en Medellín y Envigado.</p></div>
+          <div class="f-col"><b>Navegación</b><div>Menú</div><div>Ocasiones</div><div>Testimonios</div><div>FAQ</div></div>
+          <div class="f-col"><b>Contacto</b><div>💬 WhatsApp</div><div>📸 @pataconcitos.com_</div><div>🕒 8am–5pm</div></div>
+          <div class="f-col"><b>Legal</b><div>Política de privacidad</div></div>
+        </div>
+        <hr><div style="color:#a89971; font-size:12px;">Pataconcitos © 2026</div>
+      </footer>
+    </div>
+  </div>
+
+  <div class="diff-note">
+    <b>Qué cambia respecto a mobile (no es solo "estirar"):</b>
+    <ul>
+      <li>El CTA de WhatsApp deja de ser flotante/sticky — vive integrado en la navegación superior, siempre visible sin ocupar espacio de pantalla.</li>
+      <li>El Hero pasa de imagen de fondo completa a una composición de texto + imagen lado a lado.</li>
+      <li>Productos y galería usan grillas de 3 y 4 columnas respectivamente, en vez del scroll horizontal de mobile.</li>
+      <li>Testimonios y FAQ se muestran en dos columnas lado a lado, aprovechando el ancho en vez de apilarse.</li>
+      <li>El footer se expande a 4 columnas con navegación, contacto y legal separados.</li>
+    </ul>
+  </div>
+</div>

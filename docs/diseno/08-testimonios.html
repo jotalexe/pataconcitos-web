@@ -1,0 +1,165 @@
+<title>Testimonios Pataconcitos — Alta Fidelidad</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800&display=swap');
+
+  :root{
+    --bg:#fbf1de; --bg-card:#ffffff; --bg-card-alt:#fff7e8;
+    --ink:#2a2622; --ink-soft:#726b5c;
+    --petroleo:#33414a; --petroleo-deep:#212a30;
+    --naranja:#d9631f; --naranja-deep:#b64e14; --naranja-tint:#fbe3d3;
+    --dorado:#e8aa2b; --dorado-tint:#fbead0;
+    --verde:#7fa050; --verde-tint:#e7efdc;
+    --tint-ink-warm:#4a3305; --tint-ink-green:#4d6633;
+    --line:#e7d9b8; --line-soft:#f0e6cc;
+    --shadow-1: 0 1px 2px rgba(42,38,34,.07), 0 2px 6px -3px rgba(42,38,34,.10);
+    --shadow-2: 0 2px 6px rgba(42,38,34,.07), 0 10px 22px -12px rgba(42,38,34,.20);
+    --shadow-3: 0 6px 14px rgba(42,38,34,.10), 0 20px 40px -16px rgba(42,38,34,.28);
+    --r-btn:999px; --r-card:20px; --r-container:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#211d18; --bg-card:#2b2620; --bg-card-alt:#332c24;
+      --ink:#f4ecd8; --ink-soft:#c6bda5; --line:#4a4033; --line-soft:#3a3227;
+      --naranja-tint:#4a2c1c; --dorado-tint:#463819; --verde-tint:#33402a;
+      --tint-ink-warm:#f6dfa8; --tint-ink-green:#c9dcb2;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#211d18; --bg-card:#2b2620; --bg-card-alt:#332c24;
+    --ink:#f4ecd8; --ink-soft:#c6bda5; --line:#4a4033; --line-soft:#3a3227;
+    --naranja-tint:#4a2c1c; --dorado-tint:#463819; --verde-tint:#33402a;
+      --tint-ink-warm:#f6dfa8; --tint-ink-green:#c9dcb2;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0; background:var(--bg);}
+  body{color:var(--ink); font-family:'Nunito Sans',sans-serif; line-height:1.5;}
+  h1,h2,h3{font-family:'Baloo 2',sans-serif; margin:0;}
+  a{text-decoration:none; color:inherit;}
+
+  .review-topbar{background:var(--petroleo); color:#fbf1de; padding:12px 0; font-size:12px; text-transform:uppercase; letter-spacing:.05em; text-align:center;}
+  .chip-status{background:var(--dorado); color:#3a2c04; font-weight:800; padding:3px 10px; border-radius:999px; font-size:10.5px; margin-left:8px;}
+  .stage-wrap{max-width:900px; margin:0 auto; padding:30px 16px 60px; text-align:center;}
+  .stage-wrap h1{font-size:22px; margin-bottom:8px;}
+  .stage-wrap p{color:var(--ink-soft); font-size:14px; max-width:60ch; margin:0 auto 26px;}
+
+  .phone-outer{width:min(390px,92vw); margin:0 auto; border:10px solid var(--petroleo-deep); border-radius:44px; box-shadow:var(--shadow-3); overflow:hidden; background:var(--petroleo-deep);}
+  .phone-screen{background:var(--bg); border-radius:34px; overflow:hidden; position:relative; max-height:900px; overflow-y:auto;}
+
+  .site-header{position:sticky; top:0; z-index:6; background:rgba(251,241,222,.94); backdrop-filter:blur(6px); display:flex; align-items:center; gap:10px; padding:14px 16px; border-bottom:1px solid var(--line-soft);}
+  .back{font-size:18px; color:var(--petroleo);}
+  .brand{font-family:'Baloo 2'; font-weight:700; font-size:14px;}
+
+  .page-head{padding:20px 20px 4px; text-align:left;}
+  .eyebrow{font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--naranja-deep);}
+  .page-head h1{font-size:24px; margin-top:4px;}
+  .page-head p{font-size:13.5px; color:var(--ink-soft); margin-top:6px;}
+
+  .content{padding:16px 20px 90px;}
+
+  .empty-hero{
+    background:var(--bg-card-alt); border:1.5px dashed var(--line); border-radius:var(--r-card);
+    padding:34px 22px; text-align:center; margin-top:6px;
+  }
+  .empty-hero .mark{font-size:34px; opacity:.3; font-family:'Baloo 2';}
+  .empty-hero h2{font-size:18px; margin-top:6px;}
+  .empty-hero p{font-size:13px; color:var(--ink-soft); margin-top:6px; max-width:32ch; margin-left:auto; margin-right:auto;}
+
+  .section-lbl{font-family:'Baloo 2'; font-weight:700; font-size:15px; margin-top:30px; text-align:left;}
+  .section-note{font-size:12px; color:var(--ink-soft); text-align:left; margin-top:4px;}
+
+  .example-watermark{
+    position:relative; margin-top:14px; border-radius:var(--r-card); overflow:hidden;
+  }
+  .example-tag{
+    position:absolute; top:10px; right:10px; z-index:2; background:var(--naranja-deep); color:#fff8ea;
+    font-size:9.5px; font-weight:800; padding:4px 10px; border-radius:999px; letter-spacing:.03em;
+  }
+  .testi-card-future{
+    background:var(--bg-card); border-radius:var(--r-card); box-shadow:var(--shadow-2); padding:16px; text-align:left;
+    filter:saturate(.75); opacity:.9;
+  }
+  .t-head{display:flex; gap:10px; align-items:center;}
+  .avatar{width:38px; height:38px; border-radius:50%; background:var(--dorado-tint); display:flex; align-items:center; justify-content:center; font-size:16px;}
+  .t-name{font-family:'Baloo 2'; font-weight:700; font-size:13.5px;}
+  .t-meta{font-size:10.5px; color:var(--ink-soft);}
+  .t-comment{font-size:13px; color:var(--ink); margin-top:10px; font-style:italic;}
+  .t-stars{margin-top:8px; color:var(--dorado); font-size:13px;}
+  .t-source{margin-top:8px; display:inline-block; background:var(--verde-tint); color:var(--tint-ink-green); font-size:10px; font-weight:700; padding:3px 9px; border-radius:999px;}
+
+  .field-list{margin-top:14px; text-align:left; background:var(--bg-card); border-radius:var(--r-container); padding:14px 16px; box-shadow:var(--shadow-1);}
+  .field-list .f{display:flex; justify-content:space-between; font-size:12.5px; padding:6px 0; border-bottom:1px dashed var(--line);}
+  .field-list .f:last-child{border-bottom:none;}
+  .field-list .f b{font-weight:700;}
+  .field-list .f span{color:var(--ink-soft);}
+
+  .cta-box{margin-top:26px; background:linear-gradient(135deg, var(--petroleo), var(--petroleo-deep)); color:#fff8ea; border-radius:var(--r-card); padding:22px; text-align:center;}
+  .cta-box h3{color:#fff; font-size:16px;}
+  .cta-box p{font-size:12.5px; color:#e9dcb8; margin-top:6px;}
+  .btn-primary{display:inline-block; margin-top:14px; background:var(--naranja-deep); color:#fff8ea; font-weight:800; font-size:13.5px; padding:12px 22px; border-radius:999px;}
+
+  .annot{max-width:900px; margin:20px auto 0; background:var(--bg-card); border:1px solid var(--line-soft); border-radius:14px; padding:16px 20px; font-size:13px; color:var(--ink-soft); box-shadow:var(--shadow-1); text-align:left;}
+  .annot b{color:var(--ink);}
+</style>
+
+<div class="review-topbar">Pataconcitos · Fase 5 — Paso 5: Testimonios <span class="chip-status">Para aprobación</span></div>
+
+<div class="stage-wrap">
+  <h1 style="font-family:'Baloo 2';">Testimonios en alta fidelidad — mobile</h1>
+  <p>El estado real de hoy (sin testimonios) va primero y con más peso visual. Debajo se muestra, muy claramente marcado como ejemplo de estructura — nunca como testimonio real — cómo se vería una vez existan reseñas reales.</p>
+
+  <div class="phone-outer">
+    <div class="phone-screen">
+
+      <header class="site-header"><span class="back">←</span><span class="brand">Testimonios</span></header>
+
+      <div class="page-head">
+        <div class="eyebrow">Lo que dicen de nosotros</div>
+        <h1>Testimonios</h1>
+        <p>Historias reales de quienes ya se antojaron.</p>
+      </div>
+
+      <div class="content">
+        <div class="empty-hero">
+          <div class="mark">"</div>
+          <h2>Próximamente</h2>
+          <p>Todavía estamos recopilando las primeras experiencias reales de nuestros clientes. Vuelve pronto.</p>
+        </div>
+
+        <div class="section-lbl">Así se verán cuando existan</div>
+        <div class="section-note">🧪 Estructura de ejemplo — ningún nombre, foto o comentario de aquí es real. Se reemplaza por testimonios auténticos y autorizados.</div>
+
+        <div class="example-watermark">
+          <span class="example-tag">EJEMPLO — NO REAL</span>
+          <div class="testi-card-future">
+            <div class="t-head">
+              <div class="avatar">🙂</div>
+              <div><div class="t-name">[Nombre, si autoriza]</div><div class="t-meta">🧪 Producto comprado (ejemplo)</div></div>
+            </div>
+            <div class="t-comment">"[Aquí irá el comentario real del cliente, solo con su autorización]"</div>
+            <div class="t-stars">☆☆☆☆☆ <span style="font-size:10px; color:var(--ink-soft); font-style:normal;">(si se decide usar calificación)</span></div>
+            <span class="t-source">Fuente: WhatsApp / Instagram</span>
+          </div>
+        </div>
+
+        <div class="field-list">
+          <div class="f"><b>Nombre / identificación</b><span>Solo con autorización</span></div>
+          <div class="f"><b>Fotografía</b><span>Solo con autorización</span></div>
+          <div class="f"><b>Producto comprado</b><span>Se registra siempre</span></div>
+          <div class="f"><b>Calificación</b><span>Pendiente decidir si se usa</span></div>
+          <div class="f"><b>Fuente</b><span>WhatsApp, Instagram u otro</span></div>
+        </div>
+
+        <div class="cta-box">
+          <h3>¿Ya pediste con nosotros?</h3>
+          <p>Cuéntanos cómo te fue — con tu permiso, tu experiencia puede aparecer aquí.</p>
+          <a class="btn-primary" href="#">💬 Escríbenos por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="annot">
+    <b>Decisiones de esta pantalla:</b> el estado "Próximamente" tiene más peso visual y aparece primero — la sección de ejemplo está deliberadamente "apagada" (menor saturación) y marcada con una etiqueta roja-naranja "EJEMPLO — NO REAL" en cada tarjeta, además de corchetes en los campos, para que sea imposible confundirla con una reseña real, incluso si alguien solo mira la pantalla rápido. La calificación por estrellas se muestra vacía y con nota de "pendiente decidir si se usa" — no se activa por defecto.
+  </div>
+</div>
