@@ -596,13 +596,25 @@ Un sitio de una sola página con navegación real entre secciones (Inicio, Menú
 - Tarifa de domicilio, pedido mínimo, horario de atención: 🔔 pendientes en el footer y en el FAQ.
 
 ### Publicación
-- Publicado como **página privada** en la plataforma (Artifact de Claude) — no en `pataconcitos.com` ni en ningún dominio propio, tal como se acordó (no se compra ni configura dominio todavía).
-- **Importante — acción pendiente del usuario:** por defecto la página es privada; para que sea pública, accesible sin autenticación y compartible con clientes reales, el usuario debe compartirla desde el menú de compartir de la página. Hasta que eso ocurra, no es una URL pública real.
-- Cuando exista un dominio propio (`pataconcitos.com` u otro), este MVP se migra a él sin rehacer el diseño.
+- **✅ Publicado en producción vía GitHub Pages:** https://jotalexe.github.io/pataconcitos-web/ — pública, sin autenticación, accesible desde cualquier navegador.
+- Repositorio fuente: `github.com/jotalexe/pataconcitos-web` (subido por Claude vía navegador, ya que el conector de GitHub no llegó a activarse en la sesión). Incluye `index.html` (el sitio) y `/docs` (blueprint, análisis de competencia, entrevista y las 10 piezas de diseño de alta fidelidad, todo como referencia histórica del proceso).
+- Sigue sin ser dominio propio (`pataconcitos.com`) — se usa el dominio gratuito que da la plataforma (`github.io`), tal como se acordó (no se compra ni configura dominio propio todavía).
+- Cuando exista un dominio propio, se apunta como "custom domain" en GitHub Pages sin rehacer el sitio.
 
 ### MVP vs. futuro
 - **MVP (hecho):** sitio funcional de una página, WhatsApp real, contenido pendiente marcado con honestidad.
 - **Futuro:** dominio propio, panel/Sheets para que Sara edite el menú sin ayuda técnica, base de datos real, analítica (GA4), automatización y agente IA — sin implementar nada de esto todavía.
+
+### Actualización — Redes sociales, WhatsApp y fotos reales de producto
+Sobre el MVP aprobado se hicieron únicamente los siguientes ajustes (sin tocar paleta, tipografía, logo, estructura ni copy aprobados):
+
+- **Iconos sociales oficiales en el footer:** Instagram y WhatsApp como íconos reales y clicables (abren en pestaña nueva); Facebook se dejó preparado visualmente pero **sin enlace** (mostrado en estado "pendiente", no clicable) porque no se ha confirmado una URL real — no se inventó ningún perfil.
+- **Botones "Pedir por WhatsApp" reducidos:** se eliminaron los duplicados del header y del menú móvil. Quedan exactamente: CTA principal del Hero, CTA final tras la sección de productos, CTA sticky en móvil, y el CTA contextual "Preguntar por este producto" en el detalle de cada producto.
+- **Ícono oficial de WhatsApp:** se reemplazó el emoji 💬 por el ícono SVG oficial de WhatsApp (glifo del teléfono en burbuja) en los 5 botones que quedaron, siempre acompañado del texto.
+- **Fotos reales de las 3 canastas:** se incorporaron las fotos reales de Canasticas, Paquete Grande y Paquete Mediano suministradas por el negocio, recortadas para eliminar gráficos de marketing superpuestos (logo, banners de precio) y mejoradas fotográficamente (color, contraste, nitidez) sin alterar el producto ni agregar ingredientes que no estuvieran en la foto original. El nombre del producto se mantiene como texto HTML (no quemado en la imagen) para SEO/accesibilidad.
+- Verificado en vivo en `https://jotalexe.github.io/pataconcitos-web/`: Hero, Menú (3 tarjetas con foto real), detalle de producto y footer con los 3 íconos sociales.
+
+**🔔 Pendiente de confirmar con Sara:** las imágenes que llegaron de "Paquete Grande" y "Paquete Mediano" muestran precios visibles en el material de marketing original ($5.500 y $4.500 respectivamente). El sitio **no los adoptó** — sigue mostrando "🔔 Precio pendiente" — porque no hubo una instrucción explícita de tomar esos precios como definitivos. Falta que el usuario confirme si esos son los precios reales y vigentes antes de publicarlos en el sitio.
 
 ---
 
